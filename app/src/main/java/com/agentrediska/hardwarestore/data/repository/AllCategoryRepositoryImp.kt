@@ -8,13 +8,9 @@ private const val KEY_NAME_CATEGORY = "nameOfCategory"
 
 class AllCategoryRepositoryImp(private val context: Context) : AllCategoryRepository {
 
-   // val sharedPreferences = context.getSharedPreferences()
+    private val sharedPreferences = context.getSharedPreferences(SHARED_PREFS_NAME, Context.MODE_PRIVATE)
 
     override fun getAllCategory() {
-        TODO("Not yet implemented")
-    }
-
-    override fun setAllCategory() {
         TODO("Not yet implemented")
     }
 }

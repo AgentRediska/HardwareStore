@@ -1,7 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.recyclerview.widget.RecyclerView
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".presentation.FragmentCategoriesWithProducts"/>
+    tools:context=".presentation.FragmentCategoriesWithProducts">
+
+    <Button
+        android:id="@+id/btnSaveCategory"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="Save"
+        app:layout_constraintBottom_toBottomOf="@+id/btnShowCategory"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/btnShowCategory" />
+
+    <Button
+        android:id="@+id/btnShowCategory"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="Read"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/textIdCategory"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Id of category: "
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textNameCategory"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Name of category: "
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/textIdCategory"
+        app:layout_constraintStart_toStartOf="@+id/textIdCategory"
+        app:layout_constraintTop_toBottomOf="@+id/textIdCategory" />
+
+    <EditText
+        android:id="@+id/editIdCategory"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:text="Write id of category"
+        android:inputType="number"
+        app:layout_constraintBottom_toTopOf="@+id/editNameCategory"
+        app:layout_constraintStart_toStartOf="@+id/editNameCategory" />
+
+    <EditText
+        android:id="@+id/editNameCategory"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:text="Write name of category"
+        app:layout_constraintBottom_toTopOf="@+id/btnSaveCategory"
+        app:layout_constraintStart_toStartOf="@+id/btnSaveCategory" />
+</androidx.constraintlayout.widget.ConstraintLayout>

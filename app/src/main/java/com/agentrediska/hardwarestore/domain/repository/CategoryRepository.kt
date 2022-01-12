@@ -1,8 +1,10 @@
 package com.agentrediska.hardwarestore.domain.repository
 
+import com.agentrediska.hardwarestore.domain.model.Category
+
 interface CategoryRepository {
 
-    fun getCategory()
+    fun getCategory(): Category
 
-    fun setCategory()
+    fun testSetCategory( category: Category)
 }
