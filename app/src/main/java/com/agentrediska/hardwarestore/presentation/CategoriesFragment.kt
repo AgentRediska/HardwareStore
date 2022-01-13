@@ -30,12 +30,12 @@ class CategoriesFragment : Fragment() {
             CategoriesViewModelFactory(context = requireContext()))
             .get(CategoriesViewModel::class.java)
 
-        vm.categoryInfoLiveData.observe(this, { category ->
+        vm.categoryInfoLive.observe(this, { category ->
             binding.textIdCategory.text = category.id.toString()
             binding.textNameCategory.text = category.name
         })
 
-        vm.correctNewInfoLiveData.observe( this, { result ->
+        vm.correctNewInfoLive.observe( this, { result ->
             if(!result){
                 binding.textNameCategory.text = "Incorrect data"
             }

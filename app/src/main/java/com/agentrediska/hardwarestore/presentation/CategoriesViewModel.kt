@@ -1,5 +1,6 @@
 package com.agentrediska.hardwarestore.presentation
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.agentrediska.hardwarestore.domain.model.Category
@@ -13,8 +14,10 @@ class CategoriesViewModel(
     private val getCategoryUseCase: GetCategoryUseCase,
 ) : ViewModel() {
 
-    val categoryInfoLiveData = MutableLiveData<Category>()
-    val correctNewInfoLiveData = MutableLiveData<Boolean>()
+    private val categoryInfoLiveData = MutableLiveData<Category>()
+    val categoryInfoLive: LiveData<Category> = categoryInfoLiveData
+    private val correctNewInfoLiveData = MutableLiveData<Boolean>()
+    val correctNewInfoLive: LiveData<Boolean> = correctNewInfoLiveData
 
     fun setCategory(idCategory: String, nameCategory: String) {
         val newCategory = Category(id = idCategory.toInt(), name = nameCategory)
