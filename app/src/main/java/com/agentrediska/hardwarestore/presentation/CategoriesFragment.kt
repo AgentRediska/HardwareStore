@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.ViewModelProvider
 import com.agentrediska.hardwarestore.data.repository.AllCategoryRepositoryImp
 import com.agentrediska.hardwarestore.data.repository.CategoryRepositoryImp
 import com.agentrediska.hardwarestore.data.storage.SharedPreferenceStorage
@@ -14,19 +15,20 @@ import com.agentrediska.hardwarestore.domain.usecase.GetAllCategoriesUseCase
 import com.agentrediska.hardwarestore.domain.usecase.GetCategoryUseCase
 import com.agentrediska.hardwarestore.domain.usecase.SetCategoryUseCase
 
-class FragmentCategoriesWithProducts : Fragment() {
+class CategoriesFragment : Fragment() {
 
     private var _binding: FragmentCategoriesBinding? = null
     private val binding get() = _binding!!
 
-    private val categoryRepository by lazy { CategoryRepositoryImp(SharedPreferenceStorage(requireContext())) }
-    private val allCategoryRepository by lazy { AllCategoryRepositoryImp( requireContext() ) }
-    private val getCategoryUseCase by lazy { GetCategoryUseCase(categoryRepository = categoryRepository) }
-    private val setCategoryUseCase by lazy { SetCategoryUseCase(categoryRepository = categoryRepository)}
-    private val getAllCategoriesUseCase by lazy { GetAllCategoriesUseCase(allCategoryRepository = allCategoryRepository) }
+    private lateinit var vm: CategoriesViewModel
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        vm = ViewModelProvider(this,
+            CategoriesViewModelFactory(context = requireContext()))
+            .get(CategoriesViewModel::class.java)
     }
 
     override fun onCreateView(
@@ -37,16 +39,16 @@ class FragmentCategoriesWithProducts : Fragment() {
         val view = binding.root
 
         binding.btnSaveCategory.setOnClickListener {
-            val newIdCategory = Integer.parseInt( binding.editIdCategory.text.toString() )
+            val newIdCategory = binding.editIdCategory.text.toString()
             val newNameCategory = binding.editNameCategory.text.toString()
-            val result = setCategoryUseCase.setCategory( Category(id = newIdCategory, name = newNameCategory) )
+            val result = vm.setCategory(idCategory = newIdCategory, nameCategory = newNameCategory)
             if(!result){
                 binding.textNameCategory.text = "Incorrect data"
             }
         }
 
         binding.btnShowCategory.setOnClickListener {
-          val category = getCategoryUseCase.getCategory()
+          val category = vm.getCategory()
             binding.textIdCategory.text = category.id.toString()
             binding.textNameCategory.text = category.name
         }
