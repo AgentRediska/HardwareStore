@@ -29,6 +29,17 @@ class CategoriesFragment : Fragment() {
         vm = ViewModelProvider(this,
             CategoriesViewModelFactory(context = requireContext()))
             .get(CategoriesViewModel::class.java)
+
+        vm.categoryInfoLiveData.observe(this, { category ->
+            binding.textIdCategory.text = category.id.toString()
+            binding.textNameCategory.text = category.name
+        })
+
+        vm.correctNewInfoLiveData.observe( this, { result ->
+            if(!result){
+                binding.textNameCategory.text = "Incorrect data"
+            }
+        })
     }
 
     override fun onCreateView(
@@ -41,16 +52,11 @@ class CategoriesFragment : Fragment() {
         binding.btnSaveCategory.setOnClickListener {
             val newIdCategory = binding.editIdCategory.text.toString()
             val newNameCategory = binding.editNameCategory.text.toString()
-            val result = vm.setCategory(idCategory = newIdCategory, nameCategory = newNameCategory)
-            if(!result){
-                binding.textNameCategory.text = "Incorrect data"
-            }
+            vm.setCategory(idCategory = newIdCategory, nameCategory = newNameCategory)
         }
 
         binding.btnShowCategory.setOnClickListener {
-          val category = vm.getCategory()
-            binding.textIdCategory.text = category.id.toString()
-            binding.textNameCategory.text = category.name
+          vm.getCategory()
         }
 
         return view
