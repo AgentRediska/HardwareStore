@@ -5,30 +5,20 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.lifecycle.ViewModelProvider
-import com.agentrediska.hardwarestore.data.repository.AllCategoryRepositoryImp
-import com.agentrediska.hardwarestore.data.repository.CategoryRepositoryImp
-import com.agentrediska.hardwarestore.data.storage.SharedPreferenceStorage
+import androidx.fragment.app.viewModels
 import com.agentrediska.hardwarestore.databinding.FragmentCategoriesBinding
-import com.agentrediska.hardwarestore.domain.model.Category
-import com.agentrediska.hardwarestore.domain.usecase.GetAllCategoriesUseCase
-import com.agentrediska.hardwarestore.domain.usecase.GetCategoryUseCase
-import com.agentrediska.hardwarestore.domain.usecase.SetCategoryUseCase
 
 class CategoriesFragment : Fragment() {
 
     private var _binding: FragmentCategoriesBinding? = null
     private val binding get() = _binding!!
 
-    private lateinit var vm: CategoriesViewModel
-
+    private val vm: CategoriesViewModel by viewModels{
+        CategoriesViewModelFactory(context = requireContext())
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        vm = ViewModelProvider(this,
-            CategoriesViewModelFactory(context = requireContext()))
-            .get(CategoriesViewModel::class.java)
 
         vm.categoryInfoLive.observe(this, { category ->
             binding.textIdCategory.text = category.id.toString()
