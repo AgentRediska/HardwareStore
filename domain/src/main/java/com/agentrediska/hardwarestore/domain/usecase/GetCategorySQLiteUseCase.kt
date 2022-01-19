@@ -6,7 +6,7 @@ import com.agentrediska.hardwarestore.domain.repository.ICategoryRepositoryShare
 
 class GetCategorySQLiteUseCase(private val iCategoryRepositorySQLite: ICategoryRepositorySQLite) {
 
-    fun getCategory(): Category {
+   suspend fun getCategory(): Category {
         return iCategoryRepositorySQLite.getCategory()
     }
 }

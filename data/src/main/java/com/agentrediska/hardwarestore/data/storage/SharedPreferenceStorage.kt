@@ -7,17 +7,17 @@ private const val KEY_NAME_CATEGORY = "name_category"
 private const val KEY_ID_CATEGORY = "id_category"
 private const val DEFAULT_NAME_CATEGORY = "Unsigned CategoryData"
 
-class SharedPreferenceStorage( context: Context) : ICategoryStorage {
+class SharedPreferenceStorage( context: Context) : ICategorySharedPrefStorage {
 
     private val sharedPreferences = context.getSharedPreferences(SHARED_PREFS_NAME, Context.MODE_PRIVATE)
 
-    override fun saveCategory(categoryData: com.agentrediska.hardwarestore.data.storage.CategoryData) {
+    override fun saveCategory(categoryData: CategoryData) {
         sharedPreferences.edit().putInt(KEY_ID_CATEGORY, categoryData._id).apply()
         sharedPreferences.edit().putString(KEY_NAME_CATEGORY, categoryData.name).apply()
     }
-    override fun getCategory(): com.agentrediska.hardwarestore.data.storage.CategoryData {
+    override fun getCategory(): CategoryData {
         val idOfCategory = sharedPreferences.getInt(KEY_ID_CATEGORY, 0)
         val nameOfCategory = sharedPreferences.getString(KEY_NAME_CATEGORY, DEFAULT_NAME_CATEGORY) ?: DEFAULT_NAME_CATEGORY
-        return com.agentrediska.hardwarestore.data.storage.CategoryData(_id = idOfCategory, name = nameOfCategory)
+        return CategoryData(_id = idOfCategory, name = nameOfCategory)
     }
 }

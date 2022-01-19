@@ -42,11 +42,12 @@ class CategoriesFragment : Fragment() {
         binding.btnSaveCategory.setOnClickListener {
             val newIdCategory = binding.editIdCategory.text.toString()
             val newNameCategory = binding.editNameCategory.text.toString()
-            vm.setCategory(idCategory = newIdCategory, nameCategory = newNameCategory)
+           // vm.setCategory(idCategory = newIdCategory, nameCategory = newNameCategory)
+            vm.setCategoryToSQLite(idCategory = newIdCategory, nameCategory = newNameCategory)
         }
 
         binding.btnShowCategory.setOnClickListener {
-          vm.getCategory()
+          vm.getCategoryFromSQLite()
         }
 
         return view

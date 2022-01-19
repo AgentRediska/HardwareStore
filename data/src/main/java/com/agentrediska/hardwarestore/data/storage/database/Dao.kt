@@ -9,8 +9,8 @@ import com.agentrediska.hardwarestore.data.storage.CategoryData
 interface Dao {
 
     @Insert
-     fun saveCategory(categoryData: CategoryData)
+     suspend fun saveCategory(categoryData: CategoryData)
 
     @Query("SELECT * FROM categorydata WHERE _id=1")
-    fun getCategory(): CategoryData
+    suspend fun getCategory(): CategoryData
 }

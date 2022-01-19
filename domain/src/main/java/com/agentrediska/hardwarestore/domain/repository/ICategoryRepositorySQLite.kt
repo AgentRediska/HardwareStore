@@ -4,10 +4,10 @@ import com.agentrediska.hardwarestore.domain.model.Category
 
 interface ICategoryRepositorySQLite {
 
-    fun getCategory(): Category
+    suspend fun getCategory(): Category
 
-    fun getCategoryById( id: Int): Category
+    suspend fun getCategoryById( id: Int): Category
 
-    fun setCategory( category: Category)
+    suspend fun setCategory( category: Category)
 
 }

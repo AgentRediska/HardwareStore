@@ -1,6 +1,6 @@
 package com.agentrediska.hardwarestore.data.storage
 
-interface ICategoryStorage {
+interface ICategorySharedPrefStorage {
 
     fun saveCategory(categoryData: CategoryData)
 

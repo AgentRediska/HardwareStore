@@ -5,7 +5,7 @@ import com.agentrediska.hardwarestore.domain.repository.ICategoryRepositorySQLit
 
 class SetCategorySQLiteUseCase( private val iCategoryRepositorySQLite: ICategoryRepositorySQLite) {
 
-    fun setCategory( category: Category) : Boolean{
+   suspend fun setCategory( category: Category) : Boolean{
         return if(category.id == 0 || category.name.isEmpty()){
             false
         }else{
