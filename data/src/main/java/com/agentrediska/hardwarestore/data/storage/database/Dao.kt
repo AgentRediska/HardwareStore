@@ -3,7 +3,7 @@ package com.agentrediska.hardwarestore.data.storage.database
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
-import com.agentrediska.hardwarestore.data.storage.CategoryData
+import com.agentrediska.hardwarestore.data.storage.model.CategoryData
 
 @Dao
 interface Dao {

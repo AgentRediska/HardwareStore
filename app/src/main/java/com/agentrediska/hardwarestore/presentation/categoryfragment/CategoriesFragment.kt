@@ -39,7 +39,6 @@ class CategoriesFragment : Fragment(R.layout.fragment_categories) {
         binding.btnSaveCategory.setOnClickListener {
             val newIdCategory = binding.editIdCategory.text.toString()
             val newNameCategory = binding.editNameCategory.text.toString()
-            // vm.setCategory(idCategory = newIdCategory, nameCategory = newNameCategory)
             vm.setCategoryToSQLite(idCategory = newIdCategory, nameCategory = newNameCategory)
         }
 

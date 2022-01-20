@@ -1,6 +1,6 @@
 package com.agentrediska.hardwarestore.data.repository
 
-import com.agentrediska.hardwarestore.data.storage.CategoryData
+import com.agentrediska.hardwarestore.data.storage.model.CategoryData
 import com.agentrediska.hardwarestore.data.storage.ICategoryLocaleDatabaseStorage
 import com.agentrediska.hardwarestore.domain.model.Category
 import com.agentrediska.hardwarestore.domain.repository.ICategoryRepositorySQLite

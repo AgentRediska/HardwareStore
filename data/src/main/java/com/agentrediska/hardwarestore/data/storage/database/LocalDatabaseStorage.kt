@@ -2,7 +2,7 @@ package com.agentrediska.hardwarestore.data.storage.database
 
 import android.content.Context
 import androidx.room.Room
-import com.agentrediska.hardwarestore.data.storage.CategoryData
+import com.agentrediska.hardwarestore.data.storage.model.CategoryData
 import com.agentrediska.hardwarestore.data.storage.ICategoryLocaleDatabaseStorage
 import java.lang.IllegalStateException
 

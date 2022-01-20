@@ -1,4 +1,4 @@
-package com.agentrediska.hardwarestore.data.storage
+package com.agentrediska.hardwarestore.data.storage.model
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
