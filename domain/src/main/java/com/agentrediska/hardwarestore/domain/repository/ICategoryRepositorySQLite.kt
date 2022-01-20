@@ -10,4 +10,6 @@ interface ICategoryRepositorySQLite {
 
     suspend fun setCategory( category: Category)
 
+    suspend fun getAllCategory() : List<Category>
+
 }

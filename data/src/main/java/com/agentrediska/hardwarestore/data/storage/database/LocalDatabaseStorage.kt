@@ -20,6 +20,10 @@ class LocalDatabaseRepository private constructor( context: Context) : ICategory
 
     override suspend fun getCategory(): CategoryData = databaseDao.getCategory()
 
+    override suspend fun getAllCategory(): List<CategoryData> {
+        return databaseDao.getAllCategory()
+    }
+
     override suspend fun saveCategory(categoryData: CategoryData) = databaseDao.saveCategory(categoryData)
 
     companion object {

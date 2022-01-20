@@ -1,14 +1,14 @@
-package com.agentrediska.hardwarestore.presentation
+package com.agentrediska.hardwarestore.presentation.categoryfragment
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
+import com.agentrediska.hardwarestore.R
 import com.agentrediska.hardwarestore.databinding.FragmentCategoriesBinding
 
-class CategoriesFragment : Fragment() {
+class CategoriesFragment : Fragment(R.layout.fragment_categories) {
 
     private var _binding: FragmentCategoriesBinding? = null
     private val binding get() = _binding!!
@@ -32,25 +32,20 @@ class CategoriesFragment : Fragment() {
         })
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        _binding = FragmentCategoriesBinding.inflate(inflater,container, false )
-        val view = binding.root
-
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        _binding = FragmentCategoriesBinding.bind(view)
+        findNavController().navigate(R.id.action_categoriesFragment_to_placeholder)
         binding.btnSaveCategory.setOnClickListener {
             val newIdCategory = binding.editIdCategory.text.toString()
             val newNameCategory = binding.editNameCategory.text.toString()
-           // vm.setCategory(idCategory = newIdCategory, nameCategory = newNameCategory)
+            // vm.setCategory(idCategory = newIdCategory, nameCategory = newNameCategory)
             vm.setCategoryToSQLite(idCategory = newIdCategory, nameCategory = newNameCategory)
         }
 
         binding.btnShowCategory.setOnClickListener {
-          vm.getCategoryFromSQLite()
+            vm.getCategoryFromSQLite()
         }
-
-        return view
     }
 
     override fun onDestroyView() {

@@ -5,4 +5,6 @@ interface ICategoryLocaleDatabaseStorage {
    suspend fun saveCategory(categoryData: CategoryData)
 
     suspend fun getCategory() : CategoryData
+
+    suspend fun getAllCategory() : List<CategoryData>
 }

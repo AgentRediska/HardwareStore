@@ -13,4 +13,7 @@ interface Dao {
 
     @Query("SELECT * FROM categorydata WHERE _id=1")
     suspend fun getCategory(): CategoryData
+
+    @Query( "SELECT * FROM categorydata")
+    suspend fun getAllCategory(): List<CategoryData>
 }
