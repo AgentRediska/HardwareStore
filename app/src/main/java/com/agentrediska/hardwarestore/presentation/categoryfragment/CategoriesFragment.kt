@@ -10,6 +10,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.agentrediska.hardwarestore.R
 import com.agentrediska.hardwarestore.databinding.FragmentCategoriesBinding
+import com.agentrediska.hardwarestore.domain.model.Category
 import com.agentrediska.hardwarestore.presentation.categoryfragment.recyclerview.CategoryAdapter
 
 class CategoriesFragment : Fragment(R.layout.fragment_categories) {
@@ -36,7 +37,11 @@ class CategoriesFragment : Fragment(R.layout.fragment_categories) {
             }
         })
 
-        init()
+        vm.allCategoryLive.observe( this, {
+            categoryAdapter.addAllCategory(it)
+        })
+
+        vm.getAllCategoryFromSQLite()
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -50,21 +55,18 @@ class CategoriesFragment : Fragment(R.layout.fragment_categories) {
 
         binding.btnShowCategory.setOnClickListener {
             vm.getCategoryFromSQLite()
+            vm.getAllCategoryFromSQLite()
+        }
+
+        binding.apply {
+            categoryList.layoutManager = GridLayoutManager(requireContext(), 2)
+            binding.categoryList.adapter = categoryAdapter
         }
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
-    }
-
-    private fun init() {
-        binding.apply {
-            categoryList.layoutManager = GridLayoutManager(requireContext(), 2)
-            categoryList.adapter = categoryAdapter
-            categoryAdapter.addAllCategory()
-
-        }
     }
 
 }

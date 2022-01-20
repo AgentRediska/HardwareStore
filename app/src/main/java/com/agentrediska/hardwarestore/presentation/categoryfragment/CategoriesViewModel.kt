@@ -10,16 +10,18 @@ import kotlinx.coroutines.*
 
 
 class CategoriesViewModel(
+
     private val setCategorySQLiteUseCase: SetCategorySQLiteUseCase,
     private val getCategorySQLiteUseCase: GetCategorySQLiteUseCase,
     private val getAllCategorySQLiteUseCase: GetAllCategoryUseCase
 ) : ViewModel() {
 
-
     private val TAG = "MyApp"
 
     private val categoryInfoLiveData = MutableLiveData<Category>()
     val categoryInfoLive: LiveData<Category> = categoryInfoLiveData
+    private val allCategoryLiveData = MutableLiveData<List<Category>>()
+    val allCategoryLive: LiveData<List<Category>> = allCategoryLiveData
     private val correctNewInfoLiveData = MutableLiveData<Boolean>()
     val correctNewInfoLive: LiveData<Boolean> = correctNewInfoLiveData
 
@@ -33,6 +35,12 @@ class CategoriesViewModel(
     fun getCategoryFromSQLite() {
         viewModelScope.launch {
             categoryInfoLiveData.value = getCategorySQLiteUseCase.getCategory()
+        }
+    }
+
+    fun getAllCategoryFromSQLite() {
+        viewModelScope.launch {
+            allCategoryLiveData.value = getAllCategorySQLiteUseCase.getAllCategories()
         }
     }
 
