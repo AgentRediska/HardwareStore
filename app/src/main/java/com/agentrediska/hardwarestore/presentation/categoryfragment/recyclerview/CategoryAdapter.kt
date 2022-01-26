@@ -10,6 +10,7 @@ import com.agentrediska.hardwarestore.domain.model.Category
 
 class CategoryAdapter: RecyclerView.Adapter<CategoryAdapter.CategoryHolder>() {
     val categoryList = ArrayList<Category>()
+
     class CategoryHolder( item: View): RecyclerView.ViewHolder( item) {
         private val binding = CategoryItemBinding.bind(item)
         fun bind( category: Category) = with(binding){
@@ -20,6 +21,7 @@ class CategoryAdapter: RecyclerView.Adapter<CategoryAdapter.CategoryHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CategoryHolder {
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.category_item, parent, false)
+
         return CategoryHolder(view)
     }
 

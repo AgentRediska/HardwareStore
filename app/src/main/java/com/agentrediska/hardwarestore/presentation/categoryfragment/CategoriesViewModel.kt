@@ -13,7 +13,7 @@ class CategoriesViewModel(
 
     private val setCategorySQLiteUseCase: SetCategorySQLiteUseCase,
     private val getCategorySQLiteUseCase: GetCategorySQLiteUseCase,
-    private val getAllCategorySQLiteUseCase: GetAllCategoryUseCase
+    private val getAllCategorySQLiteUseCase: GetAllCategorySQLiteUseCase
 ) : ViewModel() {
 
     private val TAG = "MyApp"
