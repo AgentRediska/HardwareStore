@@ -8,7 +8,7 @@ import java.lang.IllegalStateException
 
 private const val DATABASE_NAME = "hardwarestore-database"
 
-class LocalDatabaseRepository private constructor( context: Context) : ICategoryLocaleDatabaseStorage {
+class LocalDatabaseStorage private constructor(context: Context) : ICategoryLocaleDatabaseStorage {
 
     private val database : LocalDatabase = Room.databaseBuilder(
         context.applicationContext,
@@ -27,17 +27,17 @@ class LocalDatabaseRepository private constructor( context: Context) : ICategory
     override suspend fun saveCategory(categoryData: CategoryData) = databaseDao.saveCategory(categoryData)
 
     companion object {
-        private var INSTANCE: LocalDatabaseRepository? = null
+        private var INSTANCE: LocalDatabaseStorage? = null
 
         fun initialize( context: Context) {
             if(INSTANCE ==null){
-                INSTANCE = LocalDatabaseRepository( context = context)
+                INSTANCE = LocalDatabaseStorage( context = context)
             }
         }
 
-        fun get(): LocalDatabaseRepository {
+        fun get(): LocalDatabaseStorage {
             return INSTANCE ?:
-            throw IllegalStateException("LocalDatabaseRepository must be initialized")
+            throw IllegalStateException("LocalDatabaseStorage must be initialized")
         }
     }
 }

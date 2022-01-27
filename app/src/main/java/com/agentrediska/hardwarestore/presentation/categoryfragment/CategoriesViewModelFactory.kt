@@ -32,7 +32,7 @@ class CategoriesViewModelFactory( val setCategorySQLiteUseCase: SetCategorySQLit
 */
 
    /* private val categoryRepositoryLocalDatabase by lazy {
-        CategoryRepositorySQLite(LocalDatabaseRepository.get())
+        CategoryRepositorySQLite(LocalDatabaseStorage.get())
     }*/
 
    /* private val getCategorySQLiteUseCase by lazy {
