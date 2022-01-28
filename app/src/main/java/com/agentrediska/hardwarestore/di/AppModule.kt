@@ -1,8 +1,8 @@
 package com.agentrediska.hardwarestore.di
 
-import com.agentrediska.hardwarestore.domain.usecase.GetAllCategorySQLiteUseCase
-import com.agentrediska.hardwarestore.domain.usecase.GetCategorySQLiteUseCase
-import com.agentrediska.hardwarestore.domain.usecase.SetCategorySQLiteUseCase
+import com.agentrediska.hardwarestore.domain.usecase.categorysqlite.GetAllCategorySQLiteUseCase
+import com.agentrediska.hardwarestore.domain.usecase.categorysqlite.GetCategorySQLiteUseCase
+import com.agentrediska.hardwarestore.domain.usecase.categorysqlite.SetCategorySQLiteUseCase
 import com.agentrediska.hardwarestore.presentation.categoryfragment.CategoriesViewModelFactory
 import dagger.Module
 import dagger.Provides

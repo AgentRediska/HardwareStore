@@ -5,12 +5,13 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.agentrediska.hardwarestore.domain.model.Category
-import com.agentrediska.hardwarestore.domain.usecase.*
+import com.agentrediska.hardwarestore.domain.usecase.categorysqlite.GetAllCategorySQLiteUseCase
+import com.agentrediska.hardwarestore.domain.usecase.categorysqlite.GetCategorySQLiteUseCase
+import com.agentrediska.hardwarestore.domain.usecase.categorysqlite.SetCategorySQLiteUseCase
 import kotlinx.coroutines.*
 
 
 class CategoriesViewModel(
-
     private val setCategorySQLiteUseCase: SetCategorySQLiteUseCase,
     private val getCategorySQLiteUseCase: GetCategorySQLiteUseCase,
     private val getAllCategorySQLiteUseCase: GetAllCategorySQLiteUseCase

@@ -4,6 +4,7 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
 import com.agentrediska.hardwarestore.data.storage.model.CategoryData
+import com.agentrediska.hardwarestore.data.storage.model.PreCategoryData
 
 @Dao
 interface Dao {
@@ -16,4 +17,13 @@ interface Dao {
 
     @Query( "SELECT * FROM categorydata")
     suspend fun getAllCategory(): List<CategoryData>
+
+    @Insert
+    suspend fun savePreCategory(preCategoryData: PreCategoryData)
+
+    @Query("SELECT * FROM precategorydata WHERE _id=1")
+    suspend fun getPreCategory(): PreCategoryData
+
+    @Query( "SELECT * FROM precategorydata")
+    suspend fun getAllPreCategory(): List<PreCategoryData>
 }

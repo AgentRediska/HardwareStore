@@ -1,4 +1,4 @@
-package com.agentrediska.hardwarestore.data.storage
+package com.agentrediska.hardwarestore.data.storage.database
 
 import com.agentrediska.hardwarestore.data.storage.model.CategoryData
 

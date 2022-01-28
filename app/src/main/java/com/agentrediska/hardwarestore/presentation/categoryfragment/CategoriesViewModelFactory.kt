@@ -3,19 +3,23 @@ package com.agentrediska.hardwarestore.presentation.categoryfragment
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.agentrediska.hardwarestore.domain.usecase.*
+import com.agentrediska.hardwarestore.domain.usecase.categorysqlite.GetAllCategorySQLiteUseCase
+import com.agentrediska.hardwarestore.domain.usecase.categorysqlite.GetCategorySQLiteUseCase
+import com.agentrediska.hardwarestore.domain.usecase.categorysqlite.SetCategorySQLiteUseCase
 
-class CategoriesViewModelFactory( val setCategorySQLiteUseCase: SetCategorySQLiteUseCase,
-                                  val getCategorySQLiteUseCase: GetCategorySQLiteUseCase,
-                                  val getAllCategorySQLiteUseCase: GetAllCategorySQLiteUseCase
+class CategoriesViewModelFactory(val setCategorySQLiteUseCase: SetCategorySQLiteUseCase,
+                                 val getCategorySQLiteUseCase: GetCategorySQLiteUseCase,
+                                 val getAllCategorySQLiteUseCase: GetAllCategorySQLiteUseCase
 ) : ViewModelProvider.Factory {
 
-    override fun <T : ViewModel?> create(modelClass: Class<T>): T {
+    override fun <T : ViewModel> create(modelClass: Class<T>): T {
         return CategoriesViewModel(
             setCategorySQLiteUseCase = setCategorySQLiteUseCase,
             getCategorySQLiteUseCase = getCategorySQLiteUseCase,
             getAllCategorySQLiteUseCase = getAllCategorySQLiteUseCase
         ) as T
     }
+
 
 /*
     private val categorySharedPrefRepository by lazy {

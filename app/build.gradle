@@ -55,6 +55,8 @@ dependencies {
     implementation("androidx.recyclerview:recyclerview-selection:1.1.0")
     //dagger
     implementation "com.google.dagger:dagger:2.40"
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.4.0'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.0'
     kapt "com.google.dagger:dagger-compiler:2.40"
 
     testImplementation 'junit:junit:4.+'

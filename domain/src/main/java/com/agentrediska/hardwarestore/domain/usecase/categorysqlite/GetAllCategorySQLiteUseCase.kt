@@ -1,4 +1,4 @@
-package com.agentrediska.hardwarestore.domain.usecase
+package com.agentrediska.hardwarestore.domain.usecase.categorysqlite
 
 import com.agentrediska.hardwarestore.domain.model.Category
 import com.agentrediska.hardwarestore.domain.repository.ICategoryRepositorySQLite
