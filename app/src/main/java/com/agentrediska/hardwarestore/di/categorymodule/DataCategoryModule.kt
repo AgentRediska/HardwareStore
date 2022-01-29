@@ -1,4 +1,4 @@
-package com.agentrediska.hardwarestore.di
+package com.agentrediska.hardwarestore.di.categorymodule
 
 import com.agentrediska.hardwarestore.data.repository.CategoryRepositorySQLite
 import com.agentrediska.hardwarestore.data.repository.PreCategoryRepositorySQLite
@@ -9,15 +9,10 @@ import dagger.Module
 import dagger.Provides
 
 @Module
-class DataModule {
+class DataCategoryModule {
 
     @Provides
     fun provideCategoryLocaleStorage() : ICategoryLocaleDatabaseStorage {
-        return LocalDatabaseStorage.get()
-    }
-
-    @Provides
-    fun providePreCategoryLocaleStorage() : IPreCategoryLocaleDatabaseStorage {
         return LocalDatabaseStorage.get()
     }
 
@@ -26,13 +21,6 @@ class DataModule {
         categoryLocaleDBStorage : ICategoryLocaleDatabaseStorage
     ) : CategoryRepositorySQLite {
         return CategoryRepositorySQLite(categoryLocaleDBStorage)
-    }
-
-    @Provides
-    fun providePreCategoryReposLocalDB(
-        categoryLocaleDBStorage : IPreCategoryLocaleDatabaseStorage
-    ) : PreCategoryRepositorySQLite {
-        return PreCategoryRepositorySQLite(categoryLocaleDBStorage)
     }
 
 }

@@ -7,13 +7,13 @@ import androidx.fragment.app.viewModels
 import com.agentrediska.hardwarestore.R
 import com.agentrediska.hardwarestore.databinding.PreCategoryFragmentBinding
 
-class PreCategoryFragment : Fragment(R.layout.pre_category_fragment) {
+class PreCategoriesFragment : Fragment(R.layout.pre_category_fragment) {
 
     private var _binding: PreCategoryFragmentBinding? = null
     private val binding get() = _binding!!
 
-    lateinit var viewModelFactory: PreCategoryViewModelFactory
-    private val vm: PreCategoryViewModel by viewModels {
+    lateinit var viewModelFactory: PreCategoriesViewModelFactory
+    private val vm: PreCategoriesViewModel by viewModels {
         viewModelFactory
     }
 

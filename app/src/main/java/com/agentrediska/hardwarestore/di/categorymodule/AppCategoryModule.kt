@@ -1,4 +1,4 @@
-package com.agentrediska.hardwarestore.di
+package com.agentrediska.hardwarestore.di.categorymodule
 
 import com.agentrediska.hardwarestore.domain.usecase.categorysqlite.GetAllCategorySQLiteUseCase
 import com.agentrediska.hardwarestore.domain.usecase.categorysqlite.GetCategorySQLiteUseCase
@@ -8,7 +8,7 @@ import dagger.Module
 import dagger.Provides
 
 @Module
-class AppModule {
+class AppCategoryModule {
 
     @Provides
     fun provideViewModelFactory(setCategorySQLiteUseCase: SetCategorySQLiteUseCase,
