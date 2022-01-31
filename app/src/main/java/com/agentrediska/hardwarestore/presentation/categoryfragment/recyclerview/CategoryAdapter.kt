@@ -5,14 +5,14 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.agentrediska.hardwarestore.R
-import com.agentrediska.hardwarestore.databinding.CategoryItemBinding
+import com.agentrediska.hardwarestore.databinding.HolderForListItemBinding
 import com.agentrediska.hardwarestore.domain.model.Category
 
 class CategoryAdapter: RecyclerView.Adapter<CategoryAdapter.CategoryHolder>() {
     val categoryList = ArrayList<Category>()
 
     class CategoryHolder( item: View): RecyclerView.ViewHolder( item) {
-        private val binding = CategoryItemBinding.bind(item)
+        private val binding = HolderForListItemBinding.bind(item)
         fun bind( category: Category) = with(binding){
             nameCategoryText.text = category.name
         }
@@ -20,7 +20,7 @@ class CategoryAdapter: RecyclerView.Adapter<CategoryAdapter.CategoryHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CategoryHolder {
         val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.category_item, parent, false)
+            .inflate(R.layout.holder_for_list_item, parent, false)
 
         return CategoryHolder(view)
     }
