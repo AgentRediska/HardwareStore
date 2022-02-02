@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.View
 import androidx.fragment.app.viewModels
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.agentrediska.hardwarestore.R
 import com.agentrediska.hardwarestore.app.HardwareStoreApplication
@@ -28,17 +29,6 @@ class CategoriesFragment : Fragment(R.layout.fragment_categories) {
 
         (context?.applicationContext as HardwareStoreApplication).appComponent.inject(this)
 
-        vm.categoryInfoLive.observe(this, { category ->
-            binding.textIdCategory.text = category.id.toString()
-            binding.textNameCategory.text = category.name
-        })
-
-        vm.correctNewInfoLive.observe( this, { result ->
-            if(!result){
-                binding.textNameCategory.text = "Incorrect data"
-            }
-        })
-
         vm.allCategoryLive.observe( this, {
             categoryAdapter.addAllCategory(it)
         })
@@ -50,9 +40,15 @@ class CategoriesFragment : Fragment(R.layout.fragment_categories) {
         super.onViewCreated(view, savedInstanceState)
         _binding = FragmentCategoriesBinding.bind(view)
         binding.btnSaveCategory.setOnClickListener {
-            val newIdCategory = binding.editIdCategory.text.toString()
-            val newNameCategory = binding.editNameCategory.text.toString()
-            vm.setCategoryToSQLite(idCategory = newIdCategory, nameCategory = newNameCategory)
+         //   val newIdCategory = binding.editIdCategory.text.toString()
+          //  val newNameCategory = binding.editNameCategory.text.toString()
+          //  vm.setCategoryToSQLite(idCategory = newIdCategory, nameCategory = newNameCategory)
+
+            /*Add test data to SQLite*/
+            for( i in 1..15) {
+                vm.setCategoryToSQLite(idCategory = i.toString(), nameCategory = "Test name $i")
+            }
+            /*Add test data to SQLite*/
         }
 
         binding.btnShowCategory.setOnClickListener {
@@ -60,9 +56,14 @@ class CategoriesFragment : Fragment(R.layout.fragment_categories) {
             vm.getAllCategoryFromSQLite()
         }
 
+        binding.btnNextFragment.setOnClickListener { view ->
+            view.findNavController().navigate(R.id.action_categoriesFragment_to_preCategoriesFragment)
+
+        }
+
         binding.apply {
             categoryList.layoutManager = GridLayoutManager(requireContext(), 2)
-            binding.categoryList.adapter = categoryAdapter
+            categoryList.adapter = categoryAdapter
         }
     }
 
