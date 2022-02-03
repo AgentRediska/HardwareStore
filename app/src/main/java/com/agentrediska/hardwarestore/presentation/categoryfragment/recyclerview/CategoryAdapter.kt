@@ -10,25 +10,10 @@ import com.agentrediska.hardwarestore.domain.model.Category
 
 class CategoryAdapter(
     private val onClickCallback: ( id: Int, name: String) -> Unit
-    ): RecyclerView.Adapter<CategoryAdapter.CategoryHolder>() {
+    ): RecyclerView.Adapter<CategoryHolder>() {
 
-    private var categoryList = mutableListOf<Category>()
-
-    class CategoryHolder( item: View,
-                          private val onClickCallback: (id: Int, name: String) -> Unit
-    ): RecyclerView.ViewHolder( item) {
-
-        private val binding = HolderForListItemBinding.bind(item)
-        private lateinit var localeCategory: Category
-        fun bind( category: Category) = with(binding){
-            nameCategoryText.text = category.name
-            localeCategory = category
-
-            cardViewCategory.setOnClickListener {
-                onClickCallback( localeCategory.id, localeCategory.name)
-            }
-        }
-    }
+    private var _categoryList = mutableListOf<Category>()
+    private val categoryList: List<Category> get() = _categoryList
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CategoryHolder {
         val view = LayoutInflater.from(parent.context)
@@ -46,8 +31,8 @@ class CategoryAdapter(
     }
 
     fun replaceCategoriesList( newCategoryList: List<Category>) {
-        categoryList.clear()
-        categoryList.addAll( newCategoryList)
+        _categoryList.clear()
+        _categoryList.addAll( newCategoryList)
         notifyDataSetChanged()
     }
 
