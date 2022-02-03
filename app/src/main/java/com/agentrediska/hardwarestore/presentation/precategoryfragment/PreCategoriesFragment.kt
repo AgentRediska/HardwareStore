@@ -32,6 +32,10 @@ class PreCategoriesFragment : Fragment(R.layout.fragment_pre_categories) {
         super.onViewCreated(view, savedInstanceState)
         _binding = FragmentPreCategoriesBinding.bind(view)
 
+        binding.btnSave.setOnClickListener {
+
+        }
+
         binding.apply {
             preCategoriesList.layoutManager = GridLayoutManager( requireContext(), 2)
             preCategoriesList.adapter = preCategoryAdapter

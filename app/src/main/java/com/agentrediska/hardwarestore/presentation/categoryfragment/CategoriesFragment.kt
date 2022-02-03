@@ -3,8 +3,11 @@ package com.agentrediska.hardwarestore.presentation.categoryfragment
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.View
+import android.widget.Toast
 import androidx.fragment.app.viewModels
+import androidx.navigation.NavController
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.agentrediska.hardwarestore.R
 import com.agentrediska.hardwarestore.app.HardwareStoreApplication
@@ -16,7 +19,12 @@ class CategoriesFragment : Fragment(R.layout.fragment_categories) {
 
     private var _binding: FragmentCategoriesBinding? = null
     private val binding get() = _binding!!
-    private val categoryAdapter = CategoryAdapter()
+
+    private val clickHolder = { id: Int, name: String ->
+        print( "$id, $name")
+        findNavController().navigate(R.id.action_categoriesFragment_to_preCategoriesFragment)
+    }
+    private val categoryAdapter = CategoryAdapter( onClickCallback = clickHolder)
 
     @Inject
     lateinit var vmFactory: CategoriesViewModelFactory
@@ -29,8 +37,9 @@ class CategoriesFragment : Fragment(R.layout.fragment_categories) {
 
         (context?.applicationContext as HardwareStoreApplication).appComponent.inject(this)
 
+        vm.getAllCategoryFromSQLite()
         vm.allCategoryLive.observe( this, {
-            categoryAdapter.addAllCategory(it)
+            categoryAdapter.replaceCategoriesList( newCategoryList = it)
         })
 
         vm.getAllCategoryFromSQLite()
