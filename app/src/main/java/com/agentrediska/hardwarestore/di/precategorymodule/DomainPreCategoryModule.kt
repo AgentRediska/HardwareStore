@@ -2,6 +2,7 @@ package com.agentrediska.hardwarestore.di.precategorymodule
 
 import com.agentrediska.hardwarestore.data.repository.PreCategoryRepositorySQLite
 import com.agentrediska.hardwarestore.domain.usecase.precategorysqlite.GetAllPreCategorySQLiteUseCase
+import com.agentrediska.hardwarestore.domain.usecase.precategorysqlite.SetPreCategorySQLiteUseCase
 import dagger.Module
 import dagger.Provides
 
@@ -13,6 +14,13 @@ class DomainPreCategoryModule {
         preRepositorySQLite: PreCategoryRepositorySQLite
     ) : GetAllPreCategorySQLiteUseCase {
         return GetAllPreCategorySQLiteUseCase(iPreRepositorySQLite = preRepositorySQLite)
+    }
+
+    @Provides
+    fun provideSetPreCategorySQLiteUseCase(
+        preCategoryRepositorySQLite: PreCategoryRepositorySQLite
+    ) : SetPreCategorySQLiteUseCase {
+        return SetPreCategorySQLiteUseCase( iPreCategoryRepository = preCategoryRepositorySQLite)
     }
 
 }

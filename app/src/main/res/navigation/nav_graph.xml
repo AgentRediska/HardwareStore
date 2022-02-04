@@ -18,5 +18,12 @@
         android:id="@+id/preCategoriesFragment"
         android:name="com.agentrediska.hardwarestore.presentation.precategoryfragment.PreCategoriesFragment"
         android:label="fragment_pre_categories"
-        tools:layout="@layout/fragment_pre_categories" />
+        tools:layout="@layout/fragment_pre_categories" >
+        <argument
+            android:name="idCategory"
+            app:argType="integer" />
+        <argument
+            android:name="nameCategory"
+            app:argType="string" />
+    </fragment>
 </navigation>

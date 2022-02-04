@@ -35,7 +35,6 @@ class PreCategoryRepositorySQLite(
                 categoryStorage.savePreCategory(preCategoryData)
             }
         }
-
     }
 
     override suspend fun getAllPreCategory(): List<PreCategory> {

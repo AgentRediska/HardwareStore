@@ -5,19 +5,28 @@ import androidx.fragment.app.Fragment
 import android.view.View
 import android.widget.GridLayout
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.GridLayoutManager
 import com.agentrediska.hardwarestore.R
 import com.agentrediska.hardwarestore.app.HardwareStoreApplication
 import com.agentrediska.hardwarestore.databinding.FragmentPreCategoriesBinding
+import com.agentrediska.hardwarestore.domain.model.PreCategory
 import com.agentrediska.hardwarestore.presentation.precategoryfragment.recyclerview.PreCategoryAdapter
+import javax.inject.Inject
 
 class PreCategoriesFragment : Fragment(R.layout.fragment_pre_categories) {
 
     private val preCategoryAdapter = PreCategoryAdapter()
+    private val args by lazy {
+        arguments?.let {
+            PreCategoriesFragmentArgs.fromBundle(it)
+        }
+    }
 
     private var _binding: FragmentPreCategoriesBinding? = null
     private val binding get() = _binding!!
 
+    @Inject
     lateinit var viewModelFactory: PreCategoriesViewModelFactory
     private val vm: PreCategoriesViewModel by viewModels {
         viewModelFactory
@@ -31,10 +40,18 @@ class PreCategoriesFragment : Fragment(R.layout.fragment_pre_categories) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         _binding = FragmentPreCategoriesBinding.bind(view)
-
         binding.btnSave.setOnClickListener {
-
+            /*Add test data to SQLite*/
+            for( i in 1..15) {
+                args?.let {
+                    val preCategory = PreCategory( i, it.idCategory, "Test pName $i")
+                    vm.setPreCategory(preCategory)
+                }
+            }
+            /*Add test data to SQLite*/
         }
+
+        binding.textCategoryInfo.text = "${args?.idCategory} / ${args?.nameCategory}"
 
         binding.apply {
             preCategoriesList.layoutManager = GridLayoutManager( requireContext(), 2)

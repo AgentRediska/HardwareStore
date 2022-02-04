@@ -22,7 +22,11 @@ class CategoriesFragment : Fragment(R.layout.fragment_categories) {
 
     private val clickHolder = { id: Int, name: String ->
         print( "$id, $name")
-        findNavController().navigate(R.id.action_categoriesFragment_to_preCategoriesFragment)
+        val action = CategoriesFragmentDirections.
+         actionCategoriesFragmentToPreCategoriesFragment(
+             idCategory = id, nameCategory = name
+         )
+        findNavController().navigate(action)
     }
     private val categoryAdapter = CategoryAdapter( onClickCallback = clickHolder)
 
