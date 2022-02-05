@@ -35,6 +35,14 @@ class PreCategoriesFragment : Fragment(R.layout.fragment_pre_categories) {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         (context?.applicationContext as HardwareStoreApplication).appComponent.inject( this)
+
+        vm.allPreCategoryLD.observe( this, {
+            preCategoryAdapter.replacePreCategoriesList( newPreCategoryList = it)
+        })
+
+        args?.let {
+            vm.getPreCategoriesByCategoryId(it.idCategory)
+        }
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

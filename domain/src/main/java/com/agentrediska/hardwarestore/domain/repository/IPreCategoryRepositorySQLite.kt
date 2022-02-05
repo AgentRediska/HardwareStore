@@ -10,5 +10,5 @@ interface IPreCategoryRepositorySQLite {
 
     suspend fun setPreCategory( preCategory: PreCategory)
 
-    suspend fun getAllPreCategory() : List<PreCategory>
+    suspend fun getAllPreCategoryByCategoryId( categoryId: Int) : List<PreCategory>
 }

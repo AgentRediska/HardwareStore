@@ -5,8 +5,8 @@ import com.agentrediska.hardwarestore.domain.repository.IPreCategoryRepositorySQ
 
 class GetAllPreCategorySQLiteUseCase( private val iPreRepositorySQLite: IPreCategoryRepositorySQLite) {
 
-   suspend fun getAllPreCategory() : List<PreCategory> {
-        return iPreRepositorySQLite.getAllPreCategory()
+   suspend fun getAllPreCategoryByCategoryId( categoryId: Int) : List<PreCategory> {
+        return iPreRepositorySQLite.getAllPreCategoryByCategoryId( categoryId)
     }
 
 }

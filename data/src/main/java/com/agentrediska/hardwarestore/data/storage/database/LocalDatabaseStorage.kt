@@ -49,5 +49,7 @@ class LocalDatabaseStorage private constructor(
 
     override suspend fun getPreCategory(): PreCategoryData = databaseDao.getPreCategory()
 
-    override suspend fun getAllPreCategory(): List<PreCategoryData> = databaseDao.getAllPreCategory()
+    override suspend fun getAllPreCategoryByCategoryId( categoryId: Int): List<PreCategoryData> {
+        return databaseDao.getAllPreCategory( categoryId = categoryId)
+    }
 }

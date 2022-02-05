@@ -41,7 +41,6 @@ class CategoriesFragment : Fragment(R.layout.fragment_categories) {
 
         (context?.applicationContext as HardwareStoreApplication).appComponent.inject(this)
 
-        vm.getAllCategoryFromSQLite()
         vm.allCategoryLive.observe( this, {
             categoryAdapter.replaceCategoriesList( newCategoryList = it)
         })
@@ -58,7 +57,7 @@ class CategoriesFragment : Fragment(R.layout.fragment_categories) {
           //  vm.setCategoryToSQLite(idCategory = newIdCategory, nameCategory = newNameCategory)
 
             /*Add test data to SQLite*/
-            for( i in 1..15) {
+            for( i in 16..22) {
                 vm.setCategoryToSQLite(idCategory = i.toString(), nameCategory = "Test name $i")
             }
             /*Add test data to SQLite*/

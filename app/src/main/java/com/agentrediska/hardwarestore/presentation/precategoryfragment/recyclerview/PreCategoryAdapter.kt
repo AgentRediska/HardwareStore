@@ -6,18 +6,13 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.agentrediska.hardwarestore.R
 import com.agentrediska.hardwarestore.databinding.HolderForListItemBinding
+import com.agentrediska.hardwarestore.domain.model.Category
 import com.agentrediska.hardwarestore.domain.model.PreCategory
 
-class PreCategoryAdapter: RecyclerView.Adapter<PreCategoryAdapter.PreCategoryHolder>() {
-    val preCategoryList = ArrayList<PreCategory>()
+class PreCategoryAdapter: RecyclerView.Adapter<PreCategoryHolder>() {
 
-    class PreCategoryHolder( item: View) : RecyclerView.ViewHolder( item){
-        private val binding = HolderForListItemBinding.bind( item)
-
-        fun bind( preCategory: PreCategory) = with( binding) {
-            nameCategoryText.text = preCategory.name
-        }
-    }
+    private val _preCategoryList = mutableListOf<PreCategory>()
+    private val preCategoryList: List<PreCategory> get() = _preCategoryList
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PreCategoryHolder {
         val view = LayoutInflater.from( parent.context)
@@ -31,5 +26,11 @@ class PreCategoryAdapter: RecyclerView.Adapter<PreCategoryAdapter.PreCategoryHol
 
     override fun getItemCount(): Int {
         return preCategoryList.size
+    }
+
+    fun replacePreCategoriesList( newPreCategoryList: List<PreCategory>) {
+        _preCategoryList.clear()
+        _preCategoryList.addAll( newPreCategoryList)
+        notifyDataSetChanged()
     }
 }

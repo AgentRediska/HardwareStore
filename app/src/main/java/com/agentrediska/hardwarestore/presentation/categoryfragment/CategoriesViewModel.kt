@@ -21,8 +21,10 @@ class CategoriesViewModel(
 
     private val categoryInfoLiveData = MutableLiveData<Category>()
     val categoryInfoLive: LiveData<Category> = categoryInfoLiveData
+
     private val allCategoryLiveData = MutableLiveData<List<Category>>()
     val allCategoryLive: LiveData<List<Category>> = allCategoryLiveData
+
     private val correctNewInfoLiveData = MutableLiveData<Boolean>()
     val correctNewInfoLive: LiveData<Boolean> = correctNewInfoLiveData
 

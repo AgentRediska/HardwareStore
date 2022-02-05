@@ -24,6 +24,6 @@ interface Dao {
     @Query("SELECT * FROM precategorydata WHERE _id=1")
     suspend fun getPreCategory(): PreCategoryData
 
-    @Query( "SELECT * FROM precategorydata")
-    suspend fun getAllPreCategory(): List<PreCategoryData>
+    @Query( "SELECT * FROM precategorydata WHERE _id_category = :categoryId")
+    suspend fun getAllPreCategory( categoryId: Int): List<PreCategoryData>
 }

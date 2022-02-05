@@ -9,5 +9,5 @@ interface IPreCategoryLocaleDatabaseStorage {
 
     suspend fun getPreCategory() : PreCategoryData
 
-    suspend fun getAllPreCategory() : List<PreCategoryData>
+    suspend fun getAllPreCategoryByCategoryId( categoryId: Int) : List<PreCategoryData>
 }

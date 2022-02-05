@@ -37,11 +37,11 @@ class PreCategoryRepositorySQLite(
         }
     }
 
-    override suspend fun getAllPreCategory(): List<PreCategory> {
+    override suspend fun getAllPreCategoryByCategoryId( categoryId: Int): List<PreCategory> {
         val allPreCategoryList = mutableListOf<PreCategory>()
         coroutineScope {
             launch( Dispatchers.IO) {
-                val allPreCategoryDataList = categoryStorage.getAllPreCategory()
+                val allPreCategoryDataList = categoryStorage.getAllPreCategoryByCategoryId( categoryId)
                 allPreCategoryDataList.forEach {
                 val preCategory = PreCategory(
                     id = it._id,

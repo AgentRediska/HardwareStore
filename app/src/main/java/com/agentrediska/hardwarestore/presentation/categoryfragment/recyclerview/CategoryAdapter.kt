@@ -12,7 +12,7 @@ class CategoryAdapter(
     private val onClickCallback: ( id: Int, name: String) -> Unit
     ): RecyclerView.Adapter<CategoryHolder>() {
 
-    private var _categoryList = mutableListOf<Category>()
+    private val _categoryList = mutableListOf<Category>()
     private val categoryList: List<Category> get() = _categoryList
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CategoryHolder {
