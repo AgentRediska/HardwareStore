@@ -4,13 +4,15 @@ import android.content.Context
 import androidx.room.Room
 import com.agentrediska.hardwarestore.data.storage.model.CategoryData
 import com.agentrediska.hardwarestore.data.storage.model.PreCategoryData
+import com.agentrediska.hardwarestore.data.storage.model.ProductData
+import com.agentrediska.hardwarestore.domain.model.Product
 import java.lang.IllegalStateException
 
 private const val DATABASE_NAME = "hardwarestore-database"
 
 class LocalDatabaseStorage private constructor(
     context: Context
-) : ICategoryLocaleDatabaseStorage, IPreCategoryLocaleDatabaseStorage {
+) : ICategoryLocaleDatabaseStorage, IPreCategoryLocaleDatabaseStorage, IProductLocaleDatabaseStorage {
 
     private val database : LocalDatabase = Room.databaseBuilder(
         context.applicationContext,
@@ -51,5 +53,13 @@ class LocalDatabaseStorage private constructor(
 
     override suspend fun getAllPreCategoryByCategoryId( categoryId: Int): List<PreCategoryData> {
         return databaseDao.getAllPreCategory( categoryId = categoryId)
+    }
+
+    override suspend fun getAllProductByPreCategoryId( preCategoryId: Int) : List<ProductData> {
+        return databaseDao.getAllProduct( preCategoryId = preCategoryId)
+    }
+
+    override suspend fun saveProduct(productData: ProductData) {
+        databaseDao.saveProduct( productData = productData)
     }
 }
