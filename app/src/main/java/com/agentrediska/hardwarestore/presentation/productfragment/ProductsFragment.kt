@@ -7,7 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import com.agentrediska.hardwarestore.R
+import com.agentrediska.hardwarestore.app.HardwareStoreApplication
 import com.agentrediska.hardwarestore.databinding.FragmentProductsBinding
+import com.agentrediska.hardwarestore.presentation.ViewModelFactory
 import com.agentrediska.hardwarestore.presentation.precategoryfragment.PreCategoriesFragmentArgs
 import javax.inject.Inject
 
@@ -23,13 +25,15 @@ class ProductsFragment : Fragment( R.layout.fragment_products) {
     private val binding get() = _binding!!
 
     @Inject
-    lateinit var viewModelFactory: ProductViewModelFactory
+    lateinit var viewModelFactory: ViewModelFactory
     private val vm: ProductViewModel by viewModels{
         viewModelFactory
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        (context?.applicationContext as HardwareStoreApplication).appComponent.inject(this)
 
         vm.allProductLD.observe( this, {
             //изменение списка

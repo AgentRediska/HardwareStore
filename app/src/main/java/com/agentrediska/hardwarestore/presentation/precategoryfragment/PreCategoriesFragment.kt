@@ -11,6 +11,7 @@ import com.agentrediska.hardwarestore.R
 import com.agentrediska.hardwarestore.app.HardwareStoreApplication
 import com.agentrediska.hardwarestore.databinding.FragmentPreCategoriesBinding
 import com.agentrediska.hardwarestore.domain.model.PreCategory
+import com.agentrediska.hardwarestore.presentation.ViewModelFactory
 import com.agentrediska.hardwarestore.presentation.precategoryfragment.recyclerview.PreCategoryAdapter
 import javax.inject.Inject
 
@@ -27,7 +28,7 @@ class PreCategoriesFragment : Fragment(R.layout.fragment_pre_categories) {
     private val binding get() = _binding!!
 
     @Inject
-    lateinit var viewModelFactory: PreCategoriesViewModelFactory
+    lateinit var viewModelFactory: ViewModelFactory
     private val vm: PreCategoriesViewModel by viewModels {
         viewModelFactory
     }
@@ -35,6 +36,7 @@ class PreCategoriesFragment : Fragment(R.layout.fragment_pre_categories) {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         (context?.applicationContext as HardwareStoreApplication).appComponent.inject( this)
+        (context?.applicationContext as HardwareStoreApplication).appComponent.inject(viewModelFactory)
 
         vm.allPreCategoryLD.observe( this, {
             preCategoryAdapter.replacePreCategoriesList( newPreCategoryList = it)

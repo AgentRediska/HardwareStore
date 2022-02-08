@@ -13,14 +13,14 @@ class DomainPreCategoryModule {
     fun provideGetAllPreCategorySQLiteUseCase(
         preRepositorySQLite: PreCategoryRepositorySQLite
     ) : GetAllPreCategorySQLiteUseCase {
-        return GetAllPreCategorySQLiteUseCase(iPreRepositorySQLite = preRepositorySQLite)
+        return GetAllPreCategorySQLiteUseCase( preRepositorySQLite)
     }
 
     @Provides
     fun provideSetPreCategorySQLiteUseCase(
         preCategoryRepositorySQLite: PreCategoryRepositorySQLite
     ) : SetPreCategorySQLiteUseCase {
-        return SetPreCategorySQLiteUseCase( iPreCategoryRepository = preCategoryRepositorySQLite)
+        return SetPreCategorySQLiteUseCase( preCategoryRepositorySQLite)
     }
 
 }

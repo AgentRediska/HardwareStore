@@ -2,6 +2,7 @@ package com.agentrediska.hardwarestore.presentation
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import com.agentrediska.hardwarestore.app.HardwareStoreApplication
 import com.agentrediska.hardwarestore.domain.usecase.categorysqlite.GetAllCategorySQLiteUseCase
 import com.agentrediska.hardwarestore.domain.usecase.categorysqlite.GetCategorySQLiteUseCase
 import com.agentrediska.hardwarestore.domain.usecase.categorysqlite.SetCategorySQLiteUseCase
@@ -13,19 +14,27 @@ import com.agentrediska.hardwarestore.presentation.categoryfragment.CategoriesVi
 import com.agentrediska.hardwarestore.presentation.precategoryfragment.PreCategoriesViewModel
 import com.agentrediska.hardwarestore.presentation.productfragment.ProductViewModel
 import javax.inject.Inject
+import javax.inject.Singleton
 
-class ViewModelFactory @Inject constructor(
+@Singleton
+class ViewModelFactory @Inject constructor(): ViewModelProvider.Factory{
     //Category
-    private val setCategorySQLiteUseCase: SetCategorySQLiteUseCase,
-    private val getCategorySQLiteUseCase: GetCategorySQLiteUseCase,
-    private val getAllCategorySQLiteUseCase: GetAllCategorySQLiteUseCase,
+    @Inject
+    lateinit var setCategorySQLiteUseCase: SetCategorySQLiteUseCase
+    @Inject
+    lateinit var getCategorySQLiteUseCase: GetCategorySQLiteUseCase
+    @Inject
+    lateinit var getAllCategorySQLiteUseCase: GetAllCategorySQLiteUseCase
     //PreCategory
-    private val getAllPreCategorySQLiteUseCase: GetAllPreCategorySQLiteUseCase,
-    private val setPreCategorySQLiteUseCase: SetPreCategorySQLiteUseCase,
+    @Inject
+    lateinit var getAllPreCategorySQLiteUseCase: GetAllPreCategorySQLiteUseCase
+    @Inject
+    lateinit var setPreCategorySQLiteUseCase: SetPreCategorySQLiteUseCase
     //Product
-    private val getAllProductsUseCase: GetAllProductsUseCase,
-    private val setProductUseCase: SetProductUseCase
-): ViewModelProvider.Factory{
+   /* @Inject
+    lateinit var getAllProductsUseCase: GetAllProductsUseCase
+    @Inject
+    lateinit var setProductUseCase: SetProductUseCase*/
 
     @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
@@ -41,11 +50,11 @@ class ViewModelFactory @Inject constructor(
                     setPreCategorySQLiteUseCase
                 ) as T
 
-            modelClass.isAssignableFrom( ProductViewModel::class.java) ->
+          /*  modelClass.isAssignableFrom( ProductViewModel::class.java) ->
                 return ProductViewModel(
                     getAllProductsUseCase,
                     setProductUseCase
-                ) as T
+                ) as T*/
         }
         return modelClass.newInstance()
     }

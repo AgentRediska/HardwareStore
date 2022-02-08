@@ -34,6 +34,7 @@ class CategoriesFragment : Fragment(R.layout.fragment_categories) {
 
     @Inject
     lateinit var vmFactory: ViewModelFactory
+
     private val vm: CategoriesViewModel by viewModels{
         vmFactory
     }
@@ -42,6 +43,7 @@ class CategoriesFragment : Fragment(R.layout.fragment_categories) {
         super.onCreate(savedInstanceState)
 
         (context?.applicationContext as HardwareStoreApplication).appComponent.inject(this)
+        (context?.applicationContext as HardwareStoreApplication).appComponent.inject(vmFactory)
 
         vm.allCategoryLive.observe( this, {
             categoryAdapter.replaceCategoriesList( newCategoryList = it)
