@@ -6,6 +6,7 @@ import com.agentrediska.hardwarestore.di.categorymodule.DomainCategoryModule
 import com.agentrediska.hardwarestore.di.precategorymodule.AppPreCategoryModule
 import com.agentrediska.hardwarestore.di.precategorymodule.DataPreCategoryModule
 import com.agentrediska.hardwarestore.di.precategorymodule.DomainPreCategoryModule
+import com.agentrediska.hardwarestore.presentation.ViewModelFactory
 import com.agentrediska.hardwarestore.presentation.categoryfragment.CategoriesFragment
 import com.agentrediska.hardwarestore.presentation.precategoryfragment.PreCategoriesFragment
 import dagger.Component

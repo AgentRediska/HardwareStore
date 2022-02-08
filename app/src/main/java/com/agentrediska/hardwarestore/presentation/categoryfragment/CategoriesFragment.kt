@@ -1,5 +1,6 @@
 package com.agentrediska.hardwarestore.presentation.categoryfragment
 
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.View
@@ -12,6 +13,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.agentrediska.hardwarestore.R
 import com.agentrediska.hardwarestore.app.HardwareStoreApplication
 import com.agentrediska.hardwarestore.databinding.FragmentCategoriesBinding
+import com.agentrediska.hardwarestore.presentation.ViewModelFactory
 import com.agentrediska.hardwarestore.presentation.categoryfragment.recyclerview.CategoryAdapter
 import javax.inject.Inject
 
@@ -31,7 +33,7 @@ class CategoriesFragment : Fragment(R.layout.fragment_categories) {
     private val categoryAdapter = CategoryAdapter( onClickCallback = clickHolder)
 
     @Inject
-    lateinit var vmFactory: CategoriesViewModelFactory
+    lateinit var vmFactory: ViewModelFactory
     private val vm: CategoriesViewModel by viewModels{
         vmFactory
     }

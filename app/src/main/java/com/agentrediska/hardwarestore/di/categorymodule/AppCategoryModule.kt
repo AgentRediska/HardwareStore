@@ -6,6 +6,7 @@ import com.agentrediska.hardwarestore.domain.usecase.categorysqlite.SetCategoryS
 import com.agentrediska.hardwarestore.presentation.categoryfragment.CategoriesViewModelFactory
 import dagger.Module
 import dagger.Provides
+import javax.inject.Singleton
 
 @Module
 class AppCategoryModule {
