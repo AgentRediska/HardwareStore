@@ -25,6 +25,4 @@ interface AppComponent {
     fun inject( preCategoriesFragment: PreCategoriesFragment)
 
     fun inject( productsFragment: ProductsFragment)
-
-    fun inject( vmFactory: ViewModelFactory)
 }

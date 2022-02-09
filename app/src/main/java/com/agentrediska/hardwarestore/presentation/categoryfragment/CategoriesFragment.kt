@@ -1,12 +1,9 @@
 package com.agentrediska.hardwarestore.presentation.categoryfragment
 
-import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.View
-import android.widget.Toast
 import androidx.fragment.app.viewModels
-import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
@@ -43,7 +40,6 @@ class CategoriesFragment : Fragment(R.layout.fragment_categories) {
         super.onCreate(savedInstanceState)
 
         (context?.applicationContext as HardwareStoreApplication).appComponent.inject(this)
-        (context?.applicationContext as HardwareStoreApplication).appComponent.inject(vmFactory)
 
         vm.allCategoryLive.observe( this, {
             categoryAdapter.replaceCategoriesList( newCategoryList = it)
