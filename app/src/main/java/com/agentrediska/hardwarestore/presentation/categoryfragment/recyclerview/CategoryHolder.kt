@@ -10,13 +10,11 @@ class CategoryHolder(item: View,
 ): RecyclerView.ViewHolder( item) {
 
     private val binding = HolderForListItemBinding.bind(item)
-    private lateinit var localeCategory: Category
     fun bind( category: Category) = with(binding){
         nameCategoryText.text = category.name
-        localeCategory = category
 
         cardViewCategory.setOnClickListener {
-            onClickCallback( localeCategory.id, localeCategory.name)
+            onClickCallback( category.id, category.name)
         }
     }
 }

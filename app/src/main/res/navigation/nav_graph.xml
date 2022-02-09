@@ -25,5 +25,20 @@
         <argument
             android:name="nameCategory"
             app:argType="string" />
+        <action
+            android:id="@+id/action_preCategoriesFragment_to_productsFragment"
+            app:destination="@id/productsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/productsFragment"
+        android:name="com.agentrediska.hardwarestore.presentation.productfragment.ProductsFragment"
+        android:label="fragment_products"
+        tools:layout="@layout/fragment_products" >
+        <argument
+            android:name="idPreCategory"
+            app:argType="integer" />
+        <argument
+            android:name="namePreCategory"
+            app:argType="string" />
     </fragment>
 </navigation>

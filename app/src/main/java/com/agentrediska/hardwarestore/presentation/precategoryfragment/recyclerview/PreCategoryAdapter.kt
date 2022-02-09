@@ -9,7 +9,9 @@ import com.agentrediska.hardwarestore.databinding.HolderForListItemBinding
 import com.agentrediska.hardwarestore.domain.model.Category
 import com.agentrediska.hardwarestore.domain.model.PreCategory
 
-class PreCategoryAdapter: RecyclerView.Adapter<PreCategoryHolder>() {
+class PreCategoryAdapter(
+    private val onClickCallback: ( id: Int, name: String) -> Unit
+    ): RecyclerView.Adapter<PreCategoryHolder>() {
 
     private val _preCategoryList = mutableListOf<PreCategory>()
     private val preCategoryList: List<PreCategory> get() = _preCategoryList
@@ -17,7 +19,7 @@ class PreCategoryAdapter: RecyclerView.Adapter<PreCategoryHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PreCategoryHolder {
         val view = LayoutInflater.from( parent.context)
             .inflate(R.layout.holder_for_list_item, parent, false)
-        return PreCategoryHolder( view)
+        return PreCategoryHolder( view, onClickCallback)
     }
 
     override fun onBindViewHolder(holder: PreCategoryHolder, position: Int) {
