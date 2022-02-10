@@ -16,7 +16,7 @@ class ProductDetailFragment : Fragment(R.layout.fragment_product_detail) {
     private val binding get() = _binding!!
     private val args by lazy {
         arguments?.let {
-            //
+            ProductDetailFragmentArgs.fromBundle(it)
         }
     }
 
@@ -29,7 +29,14 @@ class ProductDetailFragment : Fragment(R.layout.fragment_product_detail) {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         (context?.applicationContext as HardwareStoreApplication).appComponent.inject(this)
-     //   vm.getProduct(//args)
+
+        vm.productLD.observe( this,{
+            binding.textIdProduct.text = it.id.toString()
+        })
+
+        args?.let {
+            vm.getProduct( it.productId)
+        }
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

@@ -14,7 +14,7 @@ class PreCategoryHolder( item: View,
     fun bind( preCategory: PreCategory) = with( binding) {
         nameCategoryText.text = preCategory.name
 
-            cardViewCategory.setOnClickListener {
+            cardView.setOnClickListener {
                 onClickCallback( preCategory.id, preCategory.name)
             }
     }

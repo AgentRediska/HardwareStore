@@ -13,7 +13,7 @@ class CategoryHolder(item: View,
     fun bind( category: Category) = with(binding){
         nameCategoryText.text = category.name
 
-        cardViewCategory.setOnClickListener {
+        cardView.setOnClickListener {
             onClickCallback( category.id, category.name)
         }
     }

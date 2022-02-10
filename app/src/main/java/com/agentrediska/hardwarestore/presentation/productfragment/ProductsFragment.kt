@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.agentrediska.hardwarestore.R
 import com.agentrediska.hardwarestore.app.HardwareStoreApplication
@@ -25,10 +26,16 @@ class ProductsFragment : Fragment( R.layout.fragment_products) {
         }
     }
 
+    private val clickHolder = { productId: Int ->
+        val action = ProductsFragmentDirections.
+                actionProductsFragmentToProductDetailFragment( productId)
+        findNavController().navigate( action)
+    }
+
     private var _binding: FragmentProductsBinding? = null
     private val binding get() = _binding!!
 
-    private val productAdapter = ProductAdapter()
+    private val productAdapter = ProductAdapter( clickHolder)
 
     @Inject
     lateinit var viewModelFactory: ViewModelFactory
