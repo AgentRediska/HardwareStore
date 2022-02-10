@@ -26,7 +26,7 @@ class PreCategoriesViewModel(
     fun getPreCategoriesByCategoryId( categoryId: Int) {
         viewModelScope.launch {
             allPreCategoryLiveData.value =
-                getAllPreCategorySQLiteUseCase.getAllPreCategoryByCategoryId( categoryId = categoryId)
+                getAllPreCategorySQLiteUseCase.getAllPreCategoryByCategoryId( categoryId)
         }
     }
 

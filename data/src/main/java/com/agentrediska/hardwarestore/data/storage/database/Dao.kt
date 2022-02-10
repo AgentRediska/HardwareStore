@@ -36,4 +36,7 @@ interface Dao {
 
     @Insert
     suspend fun saveProduct( productData: ProductData)
+
+    @Query( "SELECT * FROM productdata WHERE _id = :productId")
+    suspend fun getProduct( productId: Int) : ProductData
 }

@@ -62,4 +62,9 @@ class LocalDatabaseStorage private constructor(
     override suspend fun saveProduct(productData: ProductData) {
         databaseDao.saveProduct( productData = productData)
     }
+
+    override suspend fun getProductData( productId: Int) : ProductData {
+        return databaseDao.getProduct( productId)
+    }
+
 }

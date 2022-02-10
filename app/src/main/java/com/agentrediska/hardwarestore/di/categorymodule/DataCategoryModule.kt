@@ -14,7 +14,6 @@ class DataCategoryModule {
     @Provides
     fun provideCategoryLocaleStorage() : ICategoryLocaleDatabaseStorage {
         return LocalDatabaseStorage.get()
-
     }
 
     @Provides

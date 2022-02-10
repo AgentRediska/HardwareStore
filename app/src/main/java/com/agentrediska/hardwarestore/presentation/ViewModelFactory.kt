@@ -8,9 +8,11 @@ import com.agentrediska.hardwarestore.domain.usecase.categorysqlite.SetCategoryS
 import com.agentrediska.hardwarestore.domain.usecase.precategorysqlite.GetAllPreCategorySQLiteUseCase
 import com.agentrediska.hardwarestore.domain.usecase.precategorysqlite.SetPreCategorySQLiteUseCase
 import com.agentrediska.hardwarestore.domain.usecase.productsqlite.GetAllProductsUseCase
+import com.agentrediska.hardwarestore.domain.usecase.productsqlite.GetProductByIdUseCase
 import com.agentrediska.hardwarestore.domain.usecase.productsqlite.SetProductUseCase
 import com.agentrediska.hardwarestore.presentation.categoryfragment.CategoriesViewModel
 import com.agentrediska.hardwarestore.presentation.precategoryfragment.PreCategoriesViewModel
+import com.agentrediska.hardwarestore.presentation.productdetailfragment.ProductDetailViewModel
 import com.agentrediska.hardwarestore.presentation.productfragment.ProductViewModel
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -26,7 +28,9 @@ class ViewModelFactory @Inject constructor(
     private val setPreCategorySQLiteUseCase: SetPreCategorySQLiteUseCase,
     //Product
     private val getAllProductsUseCase: GetAllProductsUseCase,
-    private val setProductUseCase: SetProductUseCase
+    private val setProductUseCase: SetProductUseCase,
+    //ProductDetail
+    private val getProductByIdUseCase: GetProductByIdUseCase
 ): ViewModelProvider.Factory{
 
     @Suppress("UNCHECKED_CAST")
@@ -47,6 +51,11 @@ class ViewModelFactory @Inject constructor(
                 return ProductViewModel(
                     getAllProductsUseCase,
                     setProductUseCase
+                ) as T
+
+            modelClass.isAssignableFrom( ProductDetailViewModel::class.java) ->
+                return ProductDetailViewModel(
+                    getProductByIdUseCase
                 ) as T
         }
         return modelClass.newInstance()

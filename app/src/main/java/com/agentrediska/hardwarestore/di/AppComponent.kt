@@ -9,6 +9,7 @@ import com.agentrediska.hardwarestore.di.productmodule.DomainProductModule
 import com.agentrediska.hardwarestore.presentation.ViewModelFactory
 import com.agentrediska.hardwarestore.presentation.categoryfragment.CategoriesFragment
 import com.agentrediska.hardwarestore.presentation.precategoryfragment.PreCategoriesFragment
+import com.agentrediska.hardwarestore.presentation.productdetailfragment.ProductDetailFragment
 import com.agentrediska.hardwarestore.presentation.productfragment.ProductsFragment
 import dagger.Component
 import javax.inject.Singleton
@@ -25,4 +26,6 @@ interface AppComponent {
     fun inject( preCategoriesFragment: PreCategoriesFragment)
 
     fun inject( productsFragment: ProductsFragment)
+
+    fun inject( productDetailFragment: ProductDetailFragment)
 }

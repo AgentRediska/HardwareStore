@@ -5,6 +5,7 @@ import com.agentrediska.hardwarestore.data.storage.model.ProductData
 import com.agentrediska.hardwarestore.domain.model.Product
 import com.agentrediska.hardwarestore.domain.repository.IProductRepositorySQLite
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.async
 import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.launch
 
@@ -49,6 +50,20 @@ class ProductRepositorySQLite(
                 productStorage.saveProduct(productData = productData)
             }
         }
+    }
+
+    override suspend fun getProductById( productId: Int): Product {
+           val productData = productStorage.getProductData( productId)
+            with(productData) {
+               return Product(
+                   id = _id,
+                   preCategoryId = _id_pre_category,
+                   name = name,
+                   vendorCode = vendor_code,
+                   price = price,
+                   typeCount = type_count
+               )
+           }
     }
 
 }
