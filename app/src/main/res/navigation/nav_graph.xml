@@ -53,4 +53,14 @@
             android:name="productId"
             app:argType="integer" />
     </fragment>
+    <fragment
+        android:id="@+id/basketListFragment"
+        android:name="com.agentrediska.hardwarestore.presentation.basketlistfragment.BasketListFragment"
+        android:label="fragment_basket_list"
+        tools:layout="@layout/fragment_basket_list" />
+    <fragment
+        android:id="@+id/favoritesListFragment"
+        android:name="com.agentrediska.hardwarestore.presentation.favoriteslistfragment.FavoritesListFragment"
+        android:label="fragment_favorites_list"
+        tools:layout="@layout/fragment_favorites_list" />
 </navigation>

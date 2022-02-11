@@ -7,13 +7,16 @@
         <entry key="..\:/Android_Studio/HardwareStore/app/src/main/res/drawable/style_card_view.xml" value="0.25" />
         <entry key="..\:/Android_Studio/HardwareStore/app/src/main/res/layout/activity_main.xml" value="0.2" />
         <entry key="..\:/Android_Studio/HardwareStore/app/src/main/res/layout/category_item.xml" value="0.25" />
+        <entry key="..\:/Android_Studio/HardwareStore/app/src/main/res/layout/fragment_basket_list.xml" value="0.19947916666666668" />
         <entry key="..\:/Android_Studio/HardwareStore/app/src/main/res/layout/fragment_categories.xml" value="0.25" />
-        <entry key="..\:/Android_Studio/HardwareStore/app/src/main/res/layout/fragment_navigation.xml" value="0.1480978260869565" />
+        <entry key="..\:/Android_Studio/HardwareStore/app/src/main/res/layout/fragment_favorites_list.xml" value="0.21354166666666666" />
+        <entry key="..\:/Android_Studio/HardwareStore/app/src/main/res/layout/fragment_navigation.xml" value="0.1" />
         <entry key="..\:/Android_Studio/HardwareStore/app/src/main/res/layout/fragment_pre_categories.xml" value="0.25" />
         <entry key="..\:/Android_Studio/HardwareStore/app/src/main/res/layout/fragment_product_detail.xml" value="0.25" />
         <entry key="..\:/Android_Studio/HardwareStore/app/src/main/res/layout/fragment_products.xml" value="0.25" />
         <entry key="..\:/Android_Studio/HardwareStore/app/src/main/res/layout/holder_for_list_item.xml" value="0.22" />
         <entry key="..\:/Android_Studio/HardwareStore/app/src/main/res/layout/pre_category_fragment.xml" value="0.1526268115942029" />
+        <entry key="..\:/Android_Studio/HardwareStore/app/src/main/res/menu/button_navigation_menu.xml" value="0.21354166666666666" />
       </map>
     </option>
   </component>
