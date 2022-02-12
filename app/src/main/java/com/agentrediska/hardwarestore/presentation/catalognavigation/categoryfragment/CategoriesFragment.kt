@@ -1,4 +1,4 @@
-package com.agentrediska.hardwarestore.presentation.categoryfragment
+package com.agentrediska.hardwarestore.presentation.catalognavigation.categoryfragment
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -11,7 +11,7 @@ import com.agentrediska.hardwarestore.R
 import com.agentrediska.hardwarestore.app.HardwareStoreApplication
 import com.agentrediska.hardwarestore.databinding.FragmentCategoriesBinding
 import com.agentrediska.hardwarestore.presentation.ViewModelFactory
-import com.agentrediska.hardwarestore.presentation.categoryfragment.recyclerview.CategoryAdapter
+import com.agentrediska.hardwarestore.presentation.catalognavigation.categoryfragment.recyclerview.CategoryAdapter
 import javax.inject.Inject
 
 class CategoriesFragment : Fragment(R.layout.fragment_categories) {

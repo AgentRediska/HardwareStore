@@ -1,4 +1,4 @@
-package com.agentrediska.hardwarestore.presentation.categoryfragment.recyclerview
+package com.agentrediska.hardwarestore.presentation.catalognavigation.categoryfragment.recyclerview
 
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView

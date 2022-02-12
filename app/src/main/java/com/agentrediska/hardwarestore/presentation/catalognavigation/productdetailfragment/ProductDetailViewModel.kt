@@ -1,4 +1,4 @@
-package com.agentrediska.hardwarestore.presentation.productdetailfragment
+package com.agentrediska.hardwarestore.presentation.catalognavigation.productdetailfragment
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

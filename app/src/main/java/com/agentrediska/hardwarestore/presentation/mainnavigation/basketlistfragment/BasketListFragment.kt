@@ -1,4 +1,4 @@
-package com.agentrediska.hardwarestore.presentation.basketlistfragment
+package com.agentrediska.hardwarestore.presentation.mainnavigation.basketlistfragment
 
 import androidx.fragment.app.Fragment
 import com.agentrediska.hardwarestore.R

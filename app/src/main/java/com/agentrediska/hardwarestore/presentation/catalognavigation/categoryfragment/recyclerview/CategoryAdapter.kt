@@ -1,11 +1,9 @@
-package com.agentrediska.hardwarestore.presentation.categoryfragment.recyclerview
+package com.agentrediska.hardwarestore.presentation.catalognavigation.categoryfragment.recyclerview
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.agentrediska.hardwarestore.R
-import com.agentrediska.hardwarestore.databinding.HolderForListItemBinding
 import com.agentrediska.hardwarestore.domain.model.Category
 
 class CategoryAdapter(

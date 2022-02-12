@@ -5,11 +5,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:viewBindingIgnore="true"
-    tools:context=".presentation.MainActivity">
+    tools:context=".presentation.mainnavigation.MainActivity">
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragment_container"
-        android:name="com.agentrediska.hardwarestore.presentation.NavigationFragment"
+        android:name="com.agentrediska.hardwarestore.presentation.mainnavigation.NavigationFragment"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"

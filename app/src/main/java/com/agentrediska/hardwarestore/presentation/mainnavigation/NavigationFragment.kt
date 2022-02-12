@@ -1,4 +1,4 @@
-package com.agentrediska.hardwarestore.presentation
+package com.agentrediska.hardwarestore.presentation.mainnavigation
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

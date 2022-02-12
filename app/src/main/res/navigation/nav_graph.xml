@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/categoriesFragment"
-        android:name="com.agentrediska.hardwarestore.presentation.categoryfragment.CategoriesFragment"
+        android:name="com.agentrediska.hardwarestore.presentation.catalognavigation.categoryfragment.CategoriesFragment"
         android:label="fragment_categories"
         tools:layout="@layout/fragment_categories" >
         <action
@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/preCategoriesFragment"
-        android:name="com.agentrediska.hardwarestore.presentation.precategoryfragment.PreCategoriesFragment"
+        android:name="com.agentrediska.hardwarestore.presentation.catalognavigation.precategoryfragment.PreCategoriesFragment"
         android:label="fragment_pre_categories"
         tools:layout="@layout/fragment_pre_categories" >
         <argument
@@ -31,7 +31,7 @@
     </fragment>
     <fragment
         android:id="@+id/productsFragment"
-        android:name="com.agentrediska.hardwarestore.presentation.productfragment.ProductsFragment"
+        android:name="com.agentrediska.hardwarestore.presentation.catalognavigation.productfragment.ProductsFragment"
         android:label="fragment_products"
         tools:layout="@layout/fragment_products" >
         <argument
@@ -46,7 +46,7 @@
     </fragment>
     <fragment
         android:id="@+id/productDetailFragment"
-        android:name="com.agentrediska.hardwarestore.presentation.productdetailfragment.ProductDetailFragment"
+        android:name="com.agentrediska.hardwarestore.presentation.catalognavigation.productdetailfragment.ProductDetailFragment"
         android:label="fragment_product_detail"
         tools:layout="@layout/fragment_product_detail" >
         <argument
@@ -55,12 +55,12 @@
     </fragment>
     <fragment
         android:id="@+id/basketListFragment"
-        android:name="com.agentrediska.hardwarestore.presentation.basketlistfragment.BasketListFragment"
+        android:name="com.agentrediska.hardwarestore.presentation.mainnavigation.basketlistfragment.BasketListFragment"
         android:label="fragment_basket_list"
         tools:layout="@layout/fragment_basket_list" />
     <fragment
         android:id="@+id/favoritesListFragment"
-        android:name="com.agentrediska.hardwarestore.presentation.favoriteslistfragment.FavoritesListFragment"
+        android:name="com.agentrediska.hardwarestore.presentation.mainnavigation.favoriteslistfragment.FavoritesListFragment"
         android:label="fragment_favorites_list"
         tools:layout="@layout/fragment_favorites_list" />
 </navigation>

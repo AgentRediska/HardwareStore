@@ -1,20 +1,17 @@
-package com.agentrediska.hardwarestore.presentation.precategoryfragment
+package com.agentrediska.hardwarestore.presentation.catalognavigation.precategoryfragment
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.View
-import android.widget.GridLayout
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
-import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.GridLayoutManager
 import com.agentrediska.hardwarestore.R
 import com.agentrediska.hardwarestore.app.HardwareStoreApplication
 import com.agentrediska.hardwarestore.databinding.FragmentPreCategoriesBinding
 import com.agentrediska.hardwarestore.domain.model.PreCategory
 import com.agentrediska.hardwarestore.presentation.ViewModelFactory
-import com.agentrediska.hardwarestore.presentation.categoryfragment.CategoriesFragmentDirections
-import com.agentrediska.hardwarestore.presentation.precategoryfragment.recyclerview.PreCategoryAdapter
+import com.agentrediska.hardwarestore.presentation.catalognavigation.precategoryfragment.recyclerview.PreCategoryAdapter
 import javax.inject.Inject
 
 class PreCategoriesFragment : Fragment(R.layout.fragment_pre_categories) {

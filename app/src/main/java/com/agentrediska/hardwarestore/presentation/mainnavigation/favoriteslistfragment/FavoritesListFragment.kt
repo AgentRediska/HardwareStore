@@ -1,4 +1,4 @@
-package com.agentrediska.hardwarestore.presentation.favoriteslistfragment
+package com.agentrediska.hardwarestore.presentation.mainnavigation.favoriteslistfragment
 
 import androidx.fragment.app.Fragment
 import com.agentrediska.hardwarestore.R

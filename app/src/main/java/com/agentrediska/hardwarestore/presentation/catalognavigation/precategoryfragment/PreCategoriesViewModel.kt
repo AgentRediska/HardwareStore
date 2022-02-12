@@ -1,4 +1,4 @@
-package com.agentrediska.hardwarestore.presentation.precategoryfragment
+package com.agentrediska.hardwarestore.presentation.catalognavigation.precategoryfragment
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

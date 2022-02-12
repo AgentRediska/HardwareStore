@@ -10,10 +10,10 @@ import com.agentrediska.hardwarestore.domain.usecase.precategorysqlite.SetPreCat
 import com.agentrediska.hardwarestore.domain.usecase.productsqlite.GetAllProductsUseCase
 import com.agentrediska.hardwarestore.domain.usecase.productsqlite.GetProductByIdUseCase
 import com.agentrediska.hardwarestore.domain.usecase.productsqlite.SetProductUseCase
-import com.agentrediska.hardwarestore.presentation.categoryfragment.CategoriesViewModel
-import com.agentrediska.hardwarestore.presentation.precategoryfragment.PreCategoriesViewModel
-import com.agentrediska.hardwarestore.presentation.productdetailfragment.ProductDetailViewModel
-import com.agentrediska.hardwarestore.presentation.productfragment.ProductViewModel
+import com.agentrediska.hardwarestore.presentation.catalognavigation.categoryfragment.CategoriesViewModel
+import com.agentrediska.hardwarestore.presentation.catalognavigation.precategoryfragment.PreCategoriesViewModel
+import com.agentrediska.hardwarestore.presentation.catalognavigation.productdetailfragment.ProductDetailViewModel
+import com.agentrediska.hardwarestore.presentation.catalognavigation.productfragment.ProductViewModel
 import javax.inject.Inject
 import javax.inject.Singleton
 

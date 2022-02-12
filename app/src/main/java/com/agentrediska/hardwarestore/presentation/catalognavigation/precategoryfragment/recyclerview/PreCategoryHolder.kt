@@ -1,9 +1,8 @@
-package com.agentrediska.hardwarestore.presentation.precategoryfragment.recyclerview
+package com.agentrediska.hardwarestore.presentation.catalognavigation.precategoryfragment.recyclerview
 
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import com.agentrediska.hardwarestore.databinding.HolderForListItemBinding
-import com.agentrediska.hardwarestore.domain.model.Category
 import com.agentrediska.hardwarestore.domain.model.PreCategory
 
 class PreCategoryHolder( item: View,

@@ -6,11 +6,10 @@ import com.agentrediska.hardwarestore.di.precategorymodule.DataPreCategoryModule
 import com.agentrediska.hardwarestore.di.precategorymodule.DomainPreCategoryModule
 import com.agentrediska.hardwarestore.di.productmodule.DataProductModule
 import com.agentrediska.hardwarestore.di.productmodule.DomainProductModule
-import com.agentrediska.hardwarestore.presentation.ViewModelFactory
-import com.agentrediska.hardwarestore.presentation.categoryfragment.CategoriesFragment
-import com.agentrediska.hardwarestore.presentation.precategoryfragment.PreCategoriesFragment
-import com.agentrediska.hardwarestore.presentation.productdetailfragment.ProductDetailFragment
-import com.agentrediska.hardwarestore.presentation.productfragment.ProductsFragment
+import com.agentrediska.hardwarestore.presentation.catalognavigation.categoryfragment.CategoriesFragment
+import com.agentrediska.hardwarestore.presentation.catalognavigation.precategoryfragment.PreCategoriesFragment
+import com.agentrediska.hardwarestore.presentation.catalognavigation.productdetailfragment.ProductDetailFragment
+import com.agentrediska.hardwarestore.presentation.catalognavigation.productfragment.ProductsFragment
 import dagger.Component
 import javax.inject.Singleton
 
