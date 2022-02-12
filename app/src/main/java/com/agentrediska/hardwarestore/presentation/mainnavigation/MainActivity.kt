@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupWithNavController
 import com.agentrediska.hardwarestore.R
@@ -17,5 +18,10 @@ class MainActivity : AppCompatActivity() {
 
         setContentView(R.layout.activity_main)
 
+        val navHost: NavHostFragment =
+            supportFragmentManager.findFragmentById(R.id.fragmentContainerView) as NavHostFragment
+        val navController = navHost.findNavController()
+        findViewById<BottomNavigationView>(R.id.bottomNavigationView)
+            .setupWithNavController(navController)
     }
 }
