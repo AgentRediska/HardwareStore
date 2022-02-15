@@ -49,7 +49,11 @@ class ProductsFragment : Fragment( R.layout.fragment_products) {
         })
 
         args?.let {
-            vm.getAllProductByPreCategoryId(it.idPreCategory)
+            if(it.idPreCategory != 0) {
+                vm.getAllProductByPreCategoryId(it.idPreCategory)
+            } else {
+                //поиск по имени
+            }
         }
     }
 

@@ -10,9 +10,8 @@ import androidx.fragment.app.Fragment
 import com.agentrediska.hardwarestore.R
 import com.agentrediska.hardwarestore.databinding.FragmentSearchBinding
 import android.widget.Toast
-
-
-
+import androidx.navigation.fragment.findNavController
+import com.agentrediska.hardwarestore.presentation.catalognavigation.productfragment.ProductsFragmentDirections
 
 
 class SearchFragment : Fragment(R.layout.fragment_search) {
@@ -24,18 +23,20 @@ class SearchFragment : Fragment(R.layout.fragment_search) {
         super.onViewCreated(view, savedInstanceState)
         _binding = FragmentSearchBinding.bind( view)
 
+        binding.imageBackToCategories.setOnClickListener {
+            val action = SearchFragmentDirections.actionSearchFragmentToCategoriesFragment()
+            findNavController().navigate( action)
+        }
+
         binding.searchEditText.setOnKeyListener(object : View.OnKeyListener {
             override fun onKey(v: View?, keyCode: Int, event: KeyEvent): Boolean {
                 if (event.action == KeyEvent.ACTION_DOWN) {
-                    // Perform action on key press
-                    Toast.makeText(requireContext(), "dwdw", Toast.LENGTH_SHORT)
-                        .show()
+                    actionToProductsFragment( searchText = binding.searchEditText.text.toString())
                     return true
                 }
                 return false
             }
         })
-
         binding.searchEditText.requestFocus()
         showSoftKeyboard(binding.searchEditText)
     }
@@ -46,4 +47,10 @@ class SearchFragment : Fragment(R.layout.fragment_search) {
             imm.showSoftInput(view, InputMethodManager.SHOW_IMPLICIT)
         }
     }
+
+    private fun actionToProductsFragment( searchText: String) {
+            val action = SearchFragmentDirections.
+            actionSearchFragmentToProductsFragment( idPreCategory = 0, namePreCategory = searchText)
+            findNavController().navigate( action)
+        }
 }
