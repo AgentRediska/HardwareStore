@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_categoriesFragment_to_preCategoriesFragment"
             app:destination="@id/preCategoriesFragment" />
+        <action
+            android:id="@+id/action_categoriesFragment_to_searchFragment"
+            app:destination="@id/searchFragment" />
     </fragment>
     <fragment
         android:id="@+id/preCategoriesFragment"
@@ -55,17 +58,38 @@
     </fragment>
     <fragment
         android:id="@+id/basketListFragment"
-        android:name="com.agentrediska.hardwarestore.presentation.mainnavigation.basketlistfragment.BasketListFragment"
+        android:name="com.agentrediska.hardwarestore.presentation.basketlistfragment.BasketListFragment"
         android:label="fragment_basket_list"
         tools:layout="@layout/fragment_basket_list" />
     <fragment
         android:id="@+id/favoritesListFragment"
-        android:name="com.agentrediska.hardwarestore.presentation.mainnavigation.favoriteslistfragment.FavoritesListFragment"
+        android:name="com.agentrediska.hardwarestore.presentation.favoriteslistfragment.FavoritesListFragment"
         android:label="fragment_favorites_list"
         tools:layout="@layout/fragment_favorites_list" />
     <fragment
         android:id="@+id/mainFragment"
-        android:name="com.agentrediska.hardwarestore.presentation.mainnavigation.mainfragment.MainFragment"
+        android:name="com.agentrediska.hardwarestore.presentation.mainfragment.MainFragment"
         android:label="fragment_main"
-        tools:layout="@layout/fragment_main" />
+        tools:layout="@layout/fragment_main" >
+        <action
+            android:id="@+id/action_mainFragment_to_searchFragment"
+            app:destination="@id/searchFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/moreInfoFragment"
+        android:name="com.agentrediska.hardwarestore.presentation.moreinfofragment.MoreInfoFragment"
+        android:label="fragment_more_info"
+        tools:layout="@layout/fragment_more_info" />
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.agentrediska.hardwarestore.presentation.searchfragment.SearchFragment"
+        android:label="fragment_search"
+        tools:layout="@layout/fragment_search" >
+        <action
+            android:id="@+id/action_searchFragment_to_categoriesFragment"
+            app:destination="@id/categoriesFragment" />
+        <action
+            android:id="@+id/action_searchFragment_to_productsFragment"
+            app:destination="@id/productsFragment" />
+    </fragment>
 </navigation>

@@ -1,4 +1,4 @@
-package com.agentrediska.hardwarestore.presentation.mainnavigation
+package com.agentrediska.hardwarestore.presentation
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

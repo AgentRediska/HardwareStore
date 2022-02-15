@@ -12,12 +12,17 @@
         android:icon="@drawable/ic_list" />
 
     <item
+        android:id="@+id/basketListFragment"
+        android:title="Basket"
+        android:icon="@drawable/ic_local_store"/>
+
+    <item
         android:id="@+id/favoritesListFragment"
         android:title="Favorites"
         android:icon="@drawable/ic_baseline_favorite"/>
 
     <item
-        android:id="@+id/basketListFragment"
-        android:title="Basket"
-        android:icon="@drawable/ic_shopping_basket"/>
+        android:id="@+id/moreInfoFragment"
+        android:title="More"
+        android:icon="@drawable/ic_read_more"/>
 </menu>

@@ -3,12 +3,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".presentation.basketlistfragment.BasketListFragment">
+    tools:context=".presentation.moreinfofragment.MoreInfoFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="BASKET FRAGMENT" />
+        android:text="@string/hello_blank_fragment" />
 
 </FrameLayout>
