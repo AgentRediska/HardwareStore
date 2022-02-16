@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Android_Studio/HardwareStore/app/src/main/res/drawable/holder_category_style.xml" value="0.2296875" />
+        <entry key="..\:/Android_Studio/HardwareStore/app/src/main/res/drawable/holder_square_style.xml" value="0.2296875" />
         <entry key="..\:/Android_Studio/HardwareStore/app/src/main/res/drawable/ic__search.xml" value="0.2296875" />
         <entry key="..\:/Android_Studio/HardwareStore/app/src/main/res/drawable/search_container.xml" value="0.2296875" />
         <entry key="..\:/Android_Studio/HardwareStore/app/src/main/res/drawable/style_card_view.xml" value="0.25" />
@@ -18,6 +19,9 @@
         <entry key="..\:/Android_Studio/HardwareStore/app/src/main/res/layout/fragment_product_detail.xml" value="0.25" />
         <entry key="..\:/Android_Studio/HardwareStore/app/src/main/res/layout/fragment_products.xml" value="0.25" />
         <entry key="..\:/Android_Studio/HardwareStore/app/src/main/res/layout/fragment_search.xml" value="0.25" />
+        <entry key="..\:/Android_Studio/HardwareStore/app/src/main/res/layout/holder_container_for_category.xml" value="0.17844202898550723" />
+        <entry key="..\:/Android_Studio/HardwareStore/app/src/main/res/layout/holder_for_category.xml" value="0.25" />
+        <entry key="..\:/Android_Studio/HardwareStore/app/src/main/res/layout/holder_for_category_list.xml" value="0.67" />
         <entry key="..\:/Android_Studio/HardwareStore/app/src/main/res/layout/holder_for_list_item.xml" value="0.22" />
         <entry key="..\:/Android_Studio/HardwareStore/app/src/main/res/layout/pre_category_fragment.xml" value="0.1526268115942029" />
         <entry key="..\:/Android_Studio/HardwareStore/app/src/main/res/menu/button_navigation_menu.xml" value="0.21354166666666666" />
