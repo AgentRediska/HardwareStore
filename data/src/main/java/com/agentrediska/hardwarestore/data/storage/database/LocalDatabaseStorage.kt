@@ -67,4 +67,9 @@ class LocalDatabaseStorage private constructor(
         return databaseDao.getProduct( productId)
     }
 
+    override suspend fun getProductByPreCategoryName(preCategoryName: String): List<ProductData> {
+        return databaseDao.getProductByPreCategoryName( preCategoryName)
+    }
+
+
 }

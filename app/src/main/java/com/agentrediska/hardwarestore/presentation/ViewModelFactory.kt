@@ -7,6 +7,7 @@ import com.agentrediska.hardwarestore.domain.usecase.categorysqlite.GetCategoryS
 import com.agentrediska.hardwarestore.domain.usecase.categorysqlite.SetCategorySQLiteUseCase
 import com.agentrediska.hardwarestore.domain.usecase.precategorysqlite.GetAllPreCategorySQLiteUseCase
 import com.agentrediska.hardwarestore.domain.usecase.precategorysqlite.SetPreCategorySQLiteUseCase
+import com.agentrediska.hardwarestore.domain.usecase.productsqlite.GetAllProductByPreCategoryNameUseCase
 import com.agentrediska.hardwarestore.domain.usecase.productsqlite.GetAllProductsUseCase
 import com.agentrediska.hardwarestore.domain.usecase.productsqlite.GetProductByIdUseCase
 import com.agentrediska.hardwarestore.domain.usecase.productsqlite.SetProductUseCase
@@ -29,6 +30,7 @@ class ViewModelFactory @Inject constructor(
     //Product
     private val getAllProductsUseCase: GetAllProductsUseCase,
     private val setProductUseCase: SetProductUseCase,
+    private val getAllProductByPreCategoryName: GetAllProductByPreCategoryNameUseCase,
     //ProductDetail
     private val getProductByIdUseCase: GetProductByIdUseCase
 ): ViewModelProvider.Factory{
@@ -50,7 +52,8 @@ class ViewModelFactory @Inject constructor(
             modelClass.isAssignableFrom( ProductViewModel::class.java) ->
                 return ProductViewModel(
                     getAllProductsUseCase,
-                    setProductUseCase
+                    setProductUseCase,
+                    getAllProductByPreCategoryName
                 ) as T
 
             modelClass.isAssignableFrom( ProductDetailViewModel::class.java) ->

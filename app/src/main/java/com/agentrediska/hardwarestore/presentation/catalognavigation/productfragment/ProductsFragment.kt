@@ -52,7 +52,7 @@ class ProductsFragment : Fragment( R.layout.fragment_products) {
             if(it.idPreCategory != 0) {
                 vm.getAllProductByPreCategoryId(it.idPreCategory)
             } else {
-                //поиск по имени
+                vm.getAllProductByPreCategoryName( it.namePreCategory)
             }
         }
     }

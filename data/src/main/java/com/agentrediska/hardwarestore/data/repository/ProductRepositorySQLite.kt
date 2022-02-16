@@ -66,4 +66,25 @@ class ProductRepositorySQLite(
            }
     }
 
+    override suspend fun getProductByPreCategoryName(preCategoryName: String): List<Product> {
+        val allProductList = mutableListOf<Product>()
+        coroutineScope {
+            launch( Dispatchers.IO) {
+                val allProductDataList = productStorage.getProductByPreCategoryName( preCategoryName)
+                allProductDataList.forEach {
+                    val product = Product(
+                        id = it._id,
+                        preCategoryId = it._id_pre_category,
+                        name = it.name,
+                        vendorCode = it.vendor_code,
+                        price = it.price,
+                        typeCount = it.type_count
+                    )
+                    allProductList.add(product)
+                }
+            }
+        }
+        return allProductList
+    }
+
 }

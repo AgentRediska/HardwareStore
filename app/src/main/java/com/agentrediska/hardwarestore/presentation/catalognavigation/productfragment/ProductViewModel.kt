@@ -5,13 +5,15 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.agentrediska.hardwarestore.domain.model.Product
+import com.agentrediska.hardwarestore.domain.usecase.productsqlite.GetAllProductByPreCategoryNameUseCase
 import com.agentrediska.hardwarestore.domain.usecase.productsqlite.GetAllProductsUseCase
 import com.agentrediska.hardwarestore.domain.usecase.productsqlite.SetProductUseCase
 import kotlinx.coroutines.launch
 
 class ProductViewModel (
  private val getAllProductsUseCase: GetAllProductsUseCase,
- private val setProductUseCase: SetProductUseCase
+ private val setProductUseCase: SetProductUseCase,
+ private val getAllProductByPreCategoryNameUseCase: GetAllProductByPreCategoryNameUseCase
 ) : ViewModel() {
 
     private val allProductLiveData = MutableLiveData<List<Product>>()
@@ -26,6 +28,13 @@ class ProductViewModel (
     fun setProduct( product: Product) {
         viewModelScope.launch {
             setProductUseCase.setProduct( product)
+        }
+    }
+
+    fun getAllProductByPreCategoryName( preCategoryName: String) {
+        viewModelScope.launch {
+            allProductLiveData.value =
+                getAllProductByPreCategoryNameUseCase.getAllProductByPreCategory( preCategoryName)
         }
     }
 

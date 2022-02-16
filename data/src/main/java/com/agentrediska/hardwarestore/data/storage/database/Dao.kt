@@ -39,4 +39,7 @@ interface Dao {
 
     @Query( "SELECT * FROM productdata WHERE _id = :productId")
     suspend fun getProduct( productId: Int) : ProductData
+
+    @Query( "SELECT * FROM productdata WHERE _id_pre_category = (SELECT _id FROM precategorydata WHERE name = :preCategoryName)")
+    suspend fun getProductByPreCategoryName( preCategoryName: String) : List<ProductData>
 }

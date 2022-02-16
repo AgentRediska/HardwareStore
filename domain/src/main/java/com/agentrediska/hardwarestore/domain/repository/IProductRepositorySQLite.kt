@@ -10,4 +10,6 @@ interface IProductRepositorySQLite {
     suspend fun setProduct( product: Product)
 
     suspend fun getProductById( productId: Int) : Product
+
+    suspend fun getProductByPreCategoryName( preCategoryName: String) : List<Product>
 }

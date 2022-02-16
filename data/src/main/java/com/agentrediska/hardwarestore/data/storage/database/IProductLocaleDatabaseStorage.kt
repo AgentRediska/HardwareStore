@@ -9,4 +9,6 @@ interface IProductLocaleDatabaseStorage {
      suspend fun saveProduct( productData: ProductData)
 
      suspend fun getProductData( productId: Int) : ProductData
+
+     suspend fun getProductByPreCategoryName( preCategoryName: String) : List<ProductData>
 }

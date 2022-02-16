@@ -1,6 +1,7 @@
 package com.agentrediska.hardwarestore.di.productmodule
 
 import com.agentrediska.hardwarestore.data.repository.ProductRepositorySQLite
+import com.agentrediska.hardwarestore.domain.usecase.productsqlite.GetAllProductByPreCategoryNameUseCase
 import com.agentrediska.hardwarestore.domain.usecase.productsqlite.GetAllProductsUseCase
 import com.agentrediska.hardwarestore.domain.usecase.productsqlite.GetProductByIdUseCase
 import com.agentrediska.hardwarestore.domain.usecase.productsqlite.SetProductUseCase
@@ -28,6 +29,13 @@ class DomainProductModule {
     fun provideGetProductByIdUseCase(
         productRepositorySQLite: ProductRepositorySQLite
     ) : GetProductByIdUseCase {
-        return GetProductByIdUseCase( productRepository = productRepositorySQLite)
+        return GetProductByIdUseCase( productRepositorySQLite)
+    }
+
+    @Provides
+    fun provideGetProductBtyPreCategoryName(
+        productRepositorySQLite: ProductRepositorySQLite
+    ) : GetAllProductByPreCategoryNameUseCase {
+        return GetAllProductByPreCategoryNameUseCase ( productRepositorySQLite)
     }
 }
